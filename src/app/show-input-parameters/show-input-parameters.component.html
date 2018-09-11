@@ -1,0 +1,76 @@
+<div class="row" style="margin-top: 1%; margin-left:-9.9%">
+  <div class="col-md-3" id="heading">Input Parameters</div>
+  <!-- <div class="col-md-5"></div> -->
+  <!-- <div class="col-md-1" class="label" style="margin-right:-2%;">No. of Rows</div>
+    <div class="col-md-1" class="label">
+        <select style="border: 1px solid #000000; ">
+          <option>5</option>
+          <option>10</option>
+        </select>
+      </div> -->
+  <div class="col-md-1" style="margin-left:-10%; margin-top: -0.5%">
+    <button id="btn4" (click)="isCollapsed = !isCollapsed">
+      <span class="collapse-text" [hidden]="!isCollapsed">+</span>
+      <span class="collapse-text" [hidden]="isCollapsed">-</span>
+    </button>
+  </div>
+</div>
+
+<div class="rectangle" [hidden]="!isCollapsed">
+  <div class="row" id="row3">
+    <div class="col-md-2"></div>
+    <div class="col-md-1" class="label">From PID</div>
+    <div class="col-md-1" style="margin-right: -5.33%"></div>
+    <div class="col-md-4" class="label">
+      <textarea rows="1" cols="50" placeholder="CON-AS-SEC, CON-AS-BN" disabled></textarea>
+    </div>
+  </div>
+
+
+  <div class="row" id="row3">
+    <div class="col-md-2"></div>
+    <div class="col-md-1" class="label">To PID</div>
+    <div class="col-md-1" style="margin-right: -3.9%"></div>
+    <div class="col-md-4" class="label">
+      <input type="text" value="C3560CX-DNA-A-12-3" disabled>
+    </div>
+  </div>
+
+
+
+  <div class="row" id="row3">
+    <div class="col-md-2"></div>
+    <div class="col-md-1" class="label">Sales Order Number</div>
+    <div class="col-md-1" style="margin-right: -10.75%"></div>
+    <div class="col-md-4" class="label">
+      <textarea rows="1" cols="50" placeholder="105214028, 105224277" disabled></textarea>
+    </div>
+  </div>
+
+
+  <div class="row" id="row3">
+    <div class="col-md-2"></div>
+    <div class="col-md-1" class="label">Territory Type</div>
+    <div class="col-md-1" style="margin-right: -7.7%"></div>
+    <div class="col-md-4" class="label">
+      <input type="text" value="DR" disabled>
+    </div>
+  </div>
+
+  <div class="row" id="row3">
+    <div class="col-md-2"></div>
+    <div class="col-md-1" class="label">Trans Group Code</div>
+    <div class="col-md-1" style="margin-right: -9.65%"></div>
+    <div class="col-md-4" class="label">
+      <input type="text" value="REV" disabled>
+    </div>
+  </div>
+  
+<div class="row">&nbsp;</div>
+
+</div>
+
+<div class="row">
+    <hr class="col-md-12" id="hrs">
+  </div>
+  

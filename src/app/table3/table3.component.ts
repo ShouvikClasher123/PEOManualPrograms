@@ -2,13 +2,13 @@ import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
 @Component({
-  selector: 'program-details',
-  templateUrl: './program-details.component.html',
-  styleUrls: ['./program-details.component.css']
+  selector: 'table3',
+  templateUrl: './table3.component.html',
+  styleUrls: ['./table3.component.css']
 })
-export class ProgramDetailsComponent implements OnInit {
-  
-    columnDefs = [
+export class Table3Component implements OnInit {
+
+  columnDefs = [
     { headerName: 'SO#', field: 'SO#' ,width:158},
     { headerName: 'Last Adj Date', field: 'Last Adj Date' ,width:158 },
     { headerName: 'Last Adj Amt', field: 'Last Adj Amt' ,width:158 },
@@ -20,12 +20,13 @@ export class ProgramDetailsComponent implements OnInit {
 
 
   rowData: any;
+  public isCollapsed:boolean=true;
 
   constructor(private http: HttpClient) {
 
   }
 
   ngOnInit() {
-    this.rowData = this.http.get('https://api.myjson.com/bins/8kfq8');
+    this.rowData = this.http.get('https://api.myjson.com/bins/rjs1c');
   }
 }

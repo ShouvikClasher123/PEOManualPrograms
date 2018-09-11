@@ -1,6 +1,210 @@
 /* You can add global styles to this file, and also import other style files */
 @import '~bootstrap/dist/css/bootstrap.min.css';
+@import "~ag-grid-community/dist/styles/ag-grid.css";
+@import "~ag-grid-community/dist/styles/ag-theme-blue.css";
+
+.ag-theme-blue button[ref="btFirst"] {
+    background-color: transparent;
+    background-image: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTYiIGhlaWdodD0iMTYiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHBhdGggZD0iTTEyIDRMOCA4bDQgNE00LjUgNHY4IiBzdHJva2U9IiM3RjhDOEQiIGZpbGw9Im5vbmUiLz48L3N2Zz4=);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 16px 16px;
+    height: 16px;
+    opacity: 0.87;
+    width: 16px;
+    overflow: hidden;
+    text-indent: 100%;
+    appearance: none;
+    border: 0;
+    opacity: 0.54;
+    padding: 0; }
+    .ag-theme-blue button[ref="btFirst"][disabled] {
+        opacity: 0.38; }
+    .ag-theme-blue button[ref="btPrevious"] {
+    background-color: transparent;
+    background-image: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTYiIGhlaWdodD0iMTYiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHBhdGggZD0iTTkgNEw1IDhsNCA0IiBzdHJva2U9IiM3RjhDOEQiIGZpbGw9Im5vbmUiLz48L3N2Zz4=);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 16px 16px;
+    height: 16px;
+    opacity: 0.87;
+    width: 16px;
+    overflow: hidden;
+    text-indent: 100%;
+    appearance: none;
+    border: 0;
+    opacity: 0.54;
+    padding: 0; }
+    .ag-theme-blue button[ref="btPrevious"][disabled] {
+        opacity: 0.38; }
+    .ag-theme-blue button[ref="btLast"] {
+    background-color: transparent;
+    background-image: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTYiIGhlaWdodD0iMTYiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHBhdGggZD0iTTQgMTJsNC00LTQtNG03LjUgMHY4IiBzdHJva2U9IiM3RjhDOEQiIGZpbGw9Im5vbmUiLz48L3N2Zz4=);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 16px 16px;
+    height: 16px;
+    opacity: 0.87;
+    width: 16px;
+    overflow: hidden;
+    text-indent: 100%;
+    appearance: none;
+    border: 0;
+    opacity: 0.54;
+    padding: 0; }
+    .ag-theme-blue button[ref="btLast"][disabled] {
+        opacity: 0.38; }
+    .ag-theme-blue button[ref="btNext"] {
+    background-color: transparent;
+    background-image: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTYiIGhlaWdodD0iMTYiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHBhdGggZD0iTTYgMTJsNC00LTQtNCIgc3Ryb2tlPSIjN0Y4QzhEIiBmaWxsPSJub25lIi8+PC9zdmc+);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 16px 16px;
+    height: 16px;
+    opacity: 0.87;
+    width: 16px;
+    overflow: hidden;
+    text-indent: 100%;
+    appearance: none;
+    border: 0;
+    opacity: 0.54;
+    padding: 0; }
+    .ag-theme-blue button[ref="btNext"][disabled] {
+        opacity: 0.38; }
+    .ag-theme-blue .ag-rtl button[ref="btFirst"] {
+    background-color: transparent;
+    background-image: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTYiIGhlaWdodD0iMTYiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHBhdGggZD0iTTQgMTJsNC00LTQtNG03LjUgMHY4IiBzdHJva2U9IiM3RjhDOEQiIGZpbGw9Im5vbmUiLz48L3N2Zz4=);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 16px 16px;
+    height: 16px;
+    opacity: 0.87;
+    width: 16px; }
+    .ag-theme-blue .ag-rtl button[ref="btPrevious"] {
+    background-color: transparent;
+    background-image: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTYiIGhlaWdodD0iMTYiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHBhdGggZD0iTTYgMTJsNC00LTQtNCIgc3Ryb2tlPSIjN0Y4QzhEIiBmaWxsPSJub25lIi8+PC9zdmc+);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 16px 16px;
+    height: 16px;
+    opacity: 0.87;
+    width: 16px; }
+    .ag-theme-blue .ag-rtl button[ref="btLast"] {
+    background-color: transparent;
+    background-image: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTYiIGhlaWdodD0iMTYiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHBhdGggZD0iTTEyIDRMOCA4bDQgNE00LjUgNHY4IiBzdHJva2U9IiM3RjhDOEQiIGZpbGw9Im5vbmUiLz48L3N2Zz4=);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 16px 16px;
+    height: 16px;
+    opacity: 0.87;
+    width: 16px; }
+    .ag-theme-blue .ag-rtl button[ref="btNext"] {
+    background-color: transparent;
+    background-image: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTYiIGhlaWdodD0iMTYiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHBhdGggZD0iTTkgNEw1IDhsNCA0IiBzdHJva2U9IiM3RjhDOEQiIGZpbGw9Im5vbmUiLz48L3N2Zz4=);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 16px 16px;
+    height: 16px;
+    opacity: 0.87;
+    width: 16px; }
+
+    .ag-paging-page-summary-panel{
+        color: #424242;
+        font-size:12px;
+    }
 
 * {
-    font-family: 'Source Sans Pro', sans-serif;
+    font-family: 'Source Sans Pro', sans-serif !important;
   }
+
+  #header{
+    color: #616161; 
+    font-size: 34px; 
+    text-align: left; 
+    }
+
+#row1{
+    margin-top:2%;
+}
+
+.hrs{
+   margin-top:-0.2%;
+}
+
+#heading{
+    font-size: 12px; 
+    text-align: center; 
+    color: #BDBDBD;
+    font-weight:600;
+}
+
+#row3{
+    margin-top:1%;
+    margin-left: 10%;
+}
+
+#row4{
+    margin-top:1%;
+    margin-left: 14.8%;
+}
+
+.label{
+    color: #424242; 
+    font-size: 12px; 
+    text-align: left;
+    padding-left:3%;
+    font-weight: 600;
+}
+
+.label2{
+    color: #424242; 
+    font-size: 12px; 
+    text-align: center;
+    font-weight: 600;
+}
+
+button{
+    font-size: 12px; 
+    text-align: center; 
+    background: #03A9F4; 
+    border: 1px solid #616161; 
+    border-radius: 0px; 
+    width: 83px; 
+    height: 27px; 
+}
+
+#btn4{
+    font-size: 15px; 
+    text-align: center; 
+    width: 20px;
+    height: 20px;
+    display: table-cell;
+    vertical-align: middle;
+    line-height:1.2em;
+    border-radius: 10px;
+    
+    background-image: radial-gradient(white,#5e9cd3);
+}
+
+.btn2{
+    width: 115px !important;
+    height: 27px;
+}
+
+#btn1{
+    margin-left:55%;
+}
+
+select,input,textarea{
+    height: 18px;
+}
+
+.rectangle{
+    margin-top: 1%;
+    border: 1px dotted #E0E0E0; 
+}
+
+.collapse-text{
+    font-weight: bolder;
+}
+
