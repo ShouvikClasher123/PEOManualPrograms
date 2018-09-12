@@ -20,7 +20,7 @@ export class Table3Component implements OnInit {
 
 
   rowData: any;
-  public isCollapsed:boolean=true;
+  public isCollapsed:boolean=false;
 
   constructor(private http: HttpClient) {
 

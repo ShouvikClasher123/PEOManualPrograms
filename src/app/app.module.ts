@@ -9,6 +9,9 @@ import { ProgramDetailsComponent } from './program-details/program-details.compo
 import { Table2Component } from './table2/table2.component';
 import { Table3Component } from './table3/table3.component';
 import { ShowInputParametersComponent } from './show-input-parameters/show-input-parameters.component';
+import { AppRoutingModule } from './app.routing';
+import { HttpModule } from '../../node_modules/@angular/http';
+import { CustomCell1Component } from './custom-cell1/custom-cell1.component';
 
 @NgModule({
   declarations: [
@@ -17,10 +20,12 @@ import { ShowInputParametersComponent } from './show-input-parameters/show-input
     ProgramDetailsComponent,
     Table2Component,
     Table3Component,
-    ShowInputParametersComponent
+    ShowInputParametersComponent,
+    CustomCell1Component
   ],
-  imports: [BrowserModule, HttpClientModule, AgGridModule.withComponents([ProgramDetailsComponent])],
+  imports: [AppRoutingModule, HttpModule, BrowserModule, HttpClientModule, AgGridModule.withComponents([ProgramDetailsComponent])],
   providers: [],
+  entryComponents: [CustomCell1Component],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

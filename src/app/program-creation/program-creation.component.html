@@ -9,7 +9,7 @@
 
 <div class="row">
   <div class="col-md-4"></div>
-  <div class="col-md-4" id="heading">Select a program of create new</div>
+  <div class="col-md-4" id="heading"  style="margin-left:-2%;">Select a program of create new</div>
 </div>
 
 <div class="row" id="row3">
@@ -17,16 +17,18 @@
   <div class="col-md-2" class="label">Select Program</div>
   <div class="col-md-4" class="label">
     <select>
-      <option>P1-2018_33318834527_ Blanket_PID_MAPPING</option>
-      <option>P2-2018_33318834527_ Revenue Reversal</option>
+        <option>WW_GTM_2018_33318763902_IOE_SERVICE_SALES</option>
+        <option>P2-2018_33318834527_ Blanket_PID_MAPPING</option>
+        <option>P3-2018_33318834527_ Revenue Reversal</option>
     </select>
   </div>
   <div class="col-md-2" class="label">
-    <button>Create New</button>
+    <button (click)="displayMsg()">Create New</button>
   </div>
 </div>
 
-<div class="row" id="row4">
+
+<div class="row" style="margin-left:15.3%;margin-top:1%">
   <div class="col-md-5"></div>
   <div class="col-md-1" class="label">
     <button>Next</button>
@@ -37,12 +39,18 @@
 </div>
 
 <div class="row">
+    <span class="col-md-12 label" [hidden]="!showFlag" style="color:green; text-align: center; margin-top:1%;"> Program Created Successfully
+      </span>
+  </div>
+
+
+<div class="row">
   <hr class="col-md-12">
 </div>
 
 <div class="row">
   <div class="col-md-4"></div>
-  <div class="col-md-6" id="heading">Provide program name and map it to Program Type and Category</div>
+  <div class="col-md-6" id="heading"  style="margin-left:-9%;">Provide program name and map it to Program Type and Category</div>
 </div>
 
 <div class="row" id="row3" style="margin-bottom: -0.5%;">
@@ -70,9 +78,7 @@
     </select>
   </div> _
   <div class="col-md-1" class="label" style="padding-left:0.3%; padding-right:0.3%;">
-    <select>
-      <option>Unique Name</option>
-    </select>
+    <input>
   </div>
 </div>
 
@@ -97,7 +103,8 @@
   <div class="col-md-1" style="margin-right: -5.33%"></div>
   <div class="col-md-6" class="label">
     <select>
-      <option>Revenue from one PID to other</option>
+        <option>Revenue from one PID to other</option>
+        <option>Revenue from one PID to service PID</option>
       <option>Revenue from one FY to other</option>
       <option>Revenue from Non-Comm PID to Comm PID</option>
       <option>Node - Revenue from one node to another node for an Agent</option>
@@ -120,7 +127,7 @@
 
 <div class="row">
   <div class="col-md-4"></div>
-  <div class="col-md-6" id="heading">Provide program specific input data required for program execution</div>
+  <div class="col-md-6" id="heading" style="margin-left:-9%;">Provide program specific input data required for program execution</div>
 </div>
 
 <div class="rectangle">
@@ -129,7 +136,7 @@
     <div class="col-md-1" class="label">From PID</div>
     <div class="col-md-1" style="margin-right: -5.33%"></div>
     <div class="col-md-4" class="label">
-      <textarea rows="1" cols="50" placeholder="CON-AS-SEC, CON-AS-BN"></textarea>
+      <textarea rows="1" cols="50" placeholder="AS-IOT-CNSLT, AS-CIE-SME"></textarea>
     </div>
   </div>
 
@@ -139,7 +146,7 @@
   <div class="col-md-1" class="label">To PID</div>
   <div class="col-md-1" style="margin-right: -4%"></div>
   <div class="col-md-4" class="label">
-    <input type="text" value="C3560CX-DNA-A-12-3">
+    <input type="text" placeholder="CON-SNT-1">
   </div>
 </div>
 
@@ -150,7 +157,7 @@
     <div class="col-md-1" class="label">Sales Order Number</div>
     <div class="col-md-1" style="margin-right: -10.75%"></div>
     <div class="col-md-4" class="label">
-      <textarea rows="1" cols="50" placeholder="105214028, 105224277"></textarea>
+      <textarea rows="1" cols="50" placeholder="105840335, 106027813, 105981923, 106128316, 106351102"></textarea>
     </div>
   </div>
 
@@ -160,7 +167,7 @@
   <div class="col-md-1" class="label">Territory Type</div>
   <div class="col-md-1" style="margin-right: -7.7%"></div>
   <div class="col-md-4" class="label">
-    <input type="text" value="DR">
+    <input type="text" placeholder="DR">
   </div>
 </div>
 
@@ -169,7 +176,7 @@
   <div class="col-md-1" class="label">Trans Group Code</div>
   <div class="col-md-1" style="margin-right: -9.65%"></div>
   <div class="col-md-4" class="label">
-    <input type="text" value="REV">
+    <input type="text" placeholder="MANAJ">
   </div>
 </div>
 
@@ -180,7 +187,7 @@
     <button style="background-color: #E0E0E0">Reset</button>
   </div>
   <div class="col-md-1" class="label">
-        <button>Execute</button>
+      <a routerLink="/programDetails"><button>Execute</button></a>
       </div>
   </div>
 

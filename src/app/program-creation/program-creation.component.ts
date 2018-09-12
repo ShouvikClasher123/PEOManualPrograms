@@ -9,7 +9,15 @@ export class ProgramCreationComponent implements OnInit {
 
   constructor() { }
 
+  public showFlag:boolean=false;
+
   ngOnInit() {
   }
 
+  displayMsg(){
+    this.showFlag=true;
+    setTimeout(()=>{    //<<<---    using ()=> syntax
+      this.showFlag = false;
+ }, 4000);
+  }
 }

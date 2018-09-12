@@ -7,8 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ShowInputParametersComponent implements OnInit {
 
-  public isCollapsed:boolean=true;
-  
+  public isCollapsed:boolean=false;
+
   constructor() { }
 
   ngOnInit() {
