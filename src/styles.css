@@ -3,6 +3,7 @@
 @import "~ag-grid-community/dist/styles/ag-grid.css";
 @import "~ag-grid-community/dist/styles/ag-theme-blue.css";
 
+
 .ag-theme-blue button[ref="btFirst"] {
     background-color: transparent;
     background-image: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTYiIGhlaWdodD0iMTYiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHBhdGggZD0iTTEyIDRMOCA4bDQgNE00LjUgNHY4IiBzdHJva2U9IiM3RjhDOEQiIGZpbGw9Im5vbmUiLz48L3N2Zz4=);
@@ -187,7 +188,7 @@ button{
 }
 
 .btn2{
-    width: 115px !important;
+    width: 130px !important;
     height: 27px;
 }
 

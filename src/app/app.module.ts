@@ -12,6 +12,8 @@ import { ShowInputParametersComponent } from './show-input-parameters/show-input
 import { AppRoutingModule } from './app.routing';
 import { HttpModule } from '../../node_modules/@angular/http';
 import { CustomCell1Component } from './custom-cell1/custom-cell1.component';
+import { CustomCell2Component } from './custom-cell2/custom-cell2.component';
+import { FormsModule, ReactiveFormsModule } from '../../node_modules/@angular/forms';
 
 @NgModule({
   declarations: [
@@ -21,11 +23,12 @@ import { CustomCell1Component } from './custom-cell1/custom-cell1.component';
     Table2Component,
     Table3Component,
     ShowInputParametersComponent,
-    CustomCell1Component
+    CustomCell1Component,
+    CustomCell2Component
   ],
-  imports: [AppRoutingModule, HttpModule, BrowserModule, HttpClientModule, AgGridModule.withComponents([ProgramDetailsComponent])],
+  imports: [AppRoutingModule, HttpModule, BrowserModule, FormsModule, ReactiveFormsModule,HttpClientModule, AgGridModule.withComponents([ProgramDetailsComponent])],
   providers: [],
-  entryComponents: [CustomCell1Component],
+  entryComponents: [CustomCell1Component,CustomCell2Component],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,0 +1,75 @@
+create table xxpeo_user_roles
+(
+user_id varchar2(60 char),
+auth_level number
+);
+
+create table xxpeo_program_type
+(
+program_type_id number,
+program_type varchar2(200 char)
+);
+
+create table xxpeo_program
+(
+program_id number,
+program_name varchar2(200 char),
+program_type_id number,
+program_category_id number
+);
+
+create table xxpeo_key_value_map
+(
+prog_key varchar2(200 char),
+prog_value varchar2(200 char)
+);
+
+create table xxpeo_prog_type_category_map
+(
+program_type_id number,
+program_category_id number
+);
+
+create table xxpeo_program_category
+(
+program_category_id number,
+program_category varchar2(200 char)
+);
+
+create table xxpeo_program_params
+(
+program_type_id number,
+program_param_name varchar2(200 char),
+data_type varchar2(10 char),
+is_mandatory varchar2(1 char)
+);
+
+create table xxpeo_data_extract_query
+(
+query_id number,
+program_type_id number,
+prepared_query blob
+);
+
+create table xxpeo_program_params_val
+(
+program_id number,
+program_param_name varchar2(200 char),
+program_param_val varchar2(200 char)
+);
+
+create table xxpeo_ecp_source_data
+(
+source_data_id number,
+program_id number,
+record_type varchar2(200 char),
+record_status varchar2(200 char),
+so_num varchar2(200 char),
+last_adj_date date,
+last_adj_amt number,
+trans_adj_date date,
+trans_adj_amt number,
+net_zero_amt number,
+part_number varchar2(200 char),
+error_reason blob
+);

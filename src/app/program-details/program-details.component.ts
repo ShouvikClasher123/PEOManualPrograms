@@ -18,11 +18,11 @@ export class ProgramDetailsComponent implements OnInit {
     { headerName: 'Territory Type', field: 'Territory Type',width:158 }
   ];
 
-
+  progName=localStorage.getItem("ProgName")
   rowData: any;
 
-  constructor(private http: HttpClient) {
 
+  constructor(private http: HttpClient) {
   }
 
   ngOnInit() {

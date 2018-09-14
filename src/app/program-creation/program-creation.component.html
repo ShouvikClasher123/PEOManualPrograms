@@ -1,194 +1,221 @@
 <div class="row" id="row1">
+  <img src="../../assets/images/1.png" style=" margin-left: auto;margin-right: auto;">
+</div>
+
+<div class="row" id="row1">
   <div class="col-md-1"></div>
   <div class="col-md-9" id="header">PEO Automation</div>
 </div>
+
 
 <div class="row">
   <hr class="col-md-12" id="hrs">
 </div>
 
-<div class="row">
-  <div class="col-md-4"></div>
-  <div class="col-md-4" id="heading"  style="margin-left:-2%;">Select a program of create new</div>
-</div>
-
-<div class="row" id="row3">
-  <div class="col-md-2"></div>
-  <div class="col-md-2" class="label">Select Program</div>
-  <div class="col-md-4" class="label">
-    <select>
-        <option>WW_GTM_2018_33318763902_IOE_SERVICE_SALES</option>
-        <option>P2-2018_33318834527_ Blanket_PID_MAPPING</option>
-        <option>P3-2018_33318834527_ Revenue Reversal</option>
-    </select>
-  </div>
-  <div class="col-md-2" class="label">
-    <button (click)="displayMsg()">Create New</button>
-  </div>
-</div>
-
-
-<div class="row" style="margin-left:15.3%;margin-top:1%">
-  <div class="col-md-5"></div>
-  <div class="col-md-1" class="label">
-    <button>Next</button>
-  </div>
-  <div class="col-md-1" class="label">
-    <button>Edit</button>
-  </div>
-</div>
-
-<div class="row">
-    <span class="col-md-12 label" [hidden]="!showFlag" style="color:green; text-align: center; margin-top:1%;"> Program Created Successfully
-      </span>
+<div id="section-1">
+  <div class="row">
+    <div class="col-md-4"></div>
+    <div class="col-md-4" id="heading" style="margin-left:-2%;">Select a program of create new</div>
   </div>
 
-
-<div class="row">
-  <hr class="col-md-12">
-</div>
-
-<div class="row">
-  <div class="col-md-4"></div>
-  <div class="col-md-6" id="heading"  style="margin-left:-9%;">Provide program name and map it to Program Type and Category</div>
-</div>
-
-<div class="row" id="row3" style="margin-bottom: -0.5%;">
-  <div class="col-md-2"></div>
-  <div class="col-md-2" class="label">Program Name</div>
-  <div class="col-md-1" class="label" style="padding-right:0.3%;">
-    <select>
-      <option>2018</option>
-      <option>2017</option>
-    </select>
-  </div>
-  _
-  <div class="col-md-1" class="label" style="padding-left:0.3%; padding-right:0.3%;">
-    <select>
-      <option>APJC</option>
-      <option>AMER</option>
-      <option>EMEA</option>
-      <option>WW</option>
-    </select>
-  </div>
-  _
-  <div class="col-md-1" class="label" style="padding-left:0.3%; padding-right:0.3%;">
-    <select>
-      <option>33318834527</option>
-    </select>
-  </div> _
-  <div class="col-md-1" class="label" style="padding-left:0.3%; padding-right:0.3%;">
-    <input>
-  </div>
-</div>
-
-
-<div class="row" id="row3">
-  <div class="col-md-2"></div>
-  <div class="col-md-1" class="label">Type</div>
-  <div class="col-md-1" style="margin-right: -3.33%"></div>
-  <div class="col-md-4" class="label">
-    <select>
-      <option>PID Mapping</option>
-      <option>Revenue Adjustment</option>
-      <option>Revenue Reversal</option>
-    </select>
-  </div>
-</div>
-
-
-<div class="row" id="row3">
-  <div class="col-md-2"></div>
-  <div class="col-md-1" class="label">Category</div>
-  <div class="col-md-1" style="margin-right: -5.33%"></div>
-  <div class="col-md-6" class="label">
-    <select>
-        <option>Revenue from one PID to other</option>
-        <option>Revenue from one PID to service PID</option>
-      <option>Revenue from one FY to other</option>
-      <option>Revenue from Non-Comm PID to Comm PID</option>
-      <option>Node - Revenue from one node to another node for an Agent</option>
-      <option>Give Upfront Revenue and take away as it flows</option>
-      <option>No OIC Rev give Rev to agent based on Fin BI</option>
-    </select>
-  </div>
-</div>
-
-<div class="row" id="row4">
-  <div class="col-md-5"></div>
-  <div class="col-md-1" class="label">
-    <button>Save</button>
-  </div>
-</div>
-
-<div class="row">
-  <hr class="col-md-12">
-</div>
-
-<div class="row">
-  <div class="col-md-4"></div>
-  <div class="col-md-6" id="heading" style="margin-left:-9%;">Provide program specific input data required for program execution</div>
-</div>
-
-<div class="rectangle">
-  <div class="row" id="row3">
-    <div class="col-md-2"></div>
-    <div class="col-md-1" class="label">From PID</div>
-    <div class="col-md-1" style="margin-right: -5.33%"></div>
-    <div class="col-md-4" class="label">
-      <textarea rows="1" cols="50" placeholder="AS-IOT-CNSLT, AS-CIE-SME"></textarea>
-    </div>
-  </div>
-
-
-<div class="row" id="row3">
-  <div class="col-md-2"></div>
-  <div class="col-md-1" class="label">To PID</div>
-  <div class="col-md-1" style="margin-right: -4%"></div>
-  <div class="col-md-4" class="label">
-    <input type="text" placeholder="CON-SNT-1">
-  </div>
-</div>
-
-
-
-  <div class="row" id="row3">
-    <div class="col-md-2"></div>
-    <div class="col-md-1" class="label">Sales Order Number</div>
-    <div class="col-md-1" style="margin-right: -10.75%"></div>
-    <div class="col-md-4" class="label">
-      <textarea rows="1" cols="50" placeholder="105840335, 106027813, 105981923, 106128316, 106351102"></textarea>
-    </div>
-  </div>
-
-
-<div class="row" id="row3">
-  <div class="col-md-2"></div>
-  <div class="col-md-1" class="label">Territory Type</div>
-  <div class="col-md-1" style="margin-right: -7.7%"></div>
-  <div class="col-md-4" class="label">
-    <input type="text" placeholder="DR">
-  </div>
-</div>
-
-<div class="row" id="row3">
-  <div class="col-md-2"></div>
-  <div class="col-md-1" class="label">Trans Group Code</div>
-  <div class="col-md-1" style="margin-right: -9.65%"></div>
-  <div class="col-md-4" class="label">
-    <input type="text" placeholder="MANAJ">
-  </div>
-</div>
-
-<div class="row" id="row4" style="margin-bottom: 3%">
-  <div class="col-md-4"></div>
-
-  <div class="col-md-1" class="label" style="margin-left: -3.8%">
-    <button style="background-color: #E0E0E0">Reset</button>
-  </div>
-  <div class="col-md-1" class="label">
-      <a routerLink="/programDetails"><button>Execute</button></a>
+  <form [formGroup]="selectProgramForm">
+    <div class="row" id="row3">
+      <div class="col-md-2"></div>
+      <div class="col-md-2" class="label">Select Program</div>
+      <div class="col-md-5" class="label">
+        <select (change)="selectChangeHandler($event)" style=" width:252px;"  formControlName="programName">
+          <option [ngValue]="null" disabled>Select Program</option>
+          <option *ngFor="let name of names">
+            {{name.programName}}
+          </option>
+        </select>
       </div>
+      <div class="col-md-2" class="label" style="margin-left: 3%">
+        <button (click)="sec2Flag=true">Create New</button>
+      </div>
+    </div>
+
+
+    <div class="row" style="margin-left:19.3%;margin-top:1%">
+      <div class="col-md-5"></div>
+      <div class="col-md-1" class="label">
+        <button (click)="sec3Flag=true"  [disabled]="!selectProgramForm.valid">Next</button>
+      </div>
+      <div class="col-md-1" class="label">
+        <button (click)="sec2_1Flag=true"  [disabled]="!selectProgramForm.valid">Edit</button>
+      </div>
+    </div>
+  </form>
+
+
+</div>
+
+<div class="row">
+  <hr class="col-md-12">
+</div>
+
+<div id="section-2" [hidden]="!sec2Flag">
+  <form [formGroup]="createNewForm">
+    <div class="row">
+      <div class="col-md-4"></div>
+      <div class="col-md-6" id="heading" style="margin-left:-9%;">Provide program name and map it to Program Type and
+        Category</div>
+    </div>
+
+    <div class="row" id="row3" style="margin-bottom: -0.5%;">
+      <div class="col-md-2"></div>
+      <div class="col-md-2" class="label">Program Name</div>
+      <div class="col-md-1" class="label" style="padding-right:0.3%;">
+        <select formControlName="year">
+          <option [ngValue]="null" disabled>Year</option>
+          <option>2018</option>
+          <option>2017</option>
+        </select>
+      </div>
+      _
+      <div class="col-md-1" class="label" style="padding-left:0.3%; padding-right:0.3%;">
+        <select formControlName="terrType">
+          <option [ngValue]="null" disabled>Select Terr Type</option>
+          <option>APJC</option>
+          <option>AMER</option>
+          <option>EMEA</option>
+          <option>WW</option>
+        </select>
+      </div>
+      _
+      <div class="col-md-1" class="label" style="padding-left:0.3%; padding-right:0.3%;">
+        <input placeholder="FET" formControlName="fet">
+      </div> _
+      <div class="col-md-1" class="label" style="padding-left:0.3%; padding-right:0.3%;">
+        <input placeholder="Unique Name" formControlName="uniqueName">
+      </div>
+    </div>
+
+
+    <div class="row" id="row3">
+      <div class="col-md-2"></div>
+      <div class="col-md-1" class="label">Type</div>
+      <div class="col-md-1" style="margin-right: -3.33%"></div>
+      <div class="col-md-4" class="label">
+        <select formControlName="type">
+          <option [ngValue]="null" disabled>Select Type</option>
+          <option *ngFor="let type of programTypes">
+            {{type.programType}}
+          </option>
+        </select>
+      </div>
+    </div>
+
+
+    <div class="row" id="row3">
+      <div class="col-md-2"></div>
+      <div class="col-md-1" class="label">Category</div>
+      <div class="col-md-1" style="margin-right: -5.33%"></div>
+      <div class="col-md-6" class="label">
+        <select formControlName="category">
+          <option [ngValue]="null" disabled>Select Category</option>
+          <option *ngFor="let category of programCategories">
+            {{category.programCategory}}
+          </option>
+        </select>
+      </div>
+    </div>
+
+    <div class="row" id="row4" style="margin-left:19.3%">
+      <div class="col-md-5"></div>
+      <div class="col-md-1" class="label">
+        <button (click)="showFormData()" [disabled]="!createNewForm.valid">Save</button>
+      </div>
+    </div>
+  </form>
+</div>
+
+
+<div class="row">
+  <span class="col-md-12 label" [hidden]="!showFlag" style="color:green; text-align: center; margin-top:1%;"> Program
+    Created Successfully
+  </span>
+  <!-- <span class="col-md-12 label" *ngIf="(createNewForm.controls.year.invalid && createNewForm.controls.years.dirty)" style="color:red; text-align: center; margin-top:1%;">
+    Incorrect Year
+  </span> -->
+
+
+</div>
+
+<div class="row">
+  <hr class="col-md-12">
+</div>
+
+<div id="section-3" [hidden]="!sec3Flag">
+  <div class="row">
+    <div class="col-md-4"></div>
+    <div class="col-md-6" id="heading" style="margin-left:-9%;">Provide program specific input data required for
+      program
+      execution</div>
   </div>
 
+  <div class="rectangle">
+    <div class="row" id="row3">
+      <div class="col-md-2"></div>
+      <div class="col-md-1" class="label">From PID</div>
+      <div class="col-md-1" style="margin-right: -5.33%"></div>
+      <div class="col-md-4" class="label">
+        <!-- <textarea rows="1" cols="50" placeholder="AS-IOT-CNSLT, AS-CIE-SME"></textarea> -->
+        <textarea rows="1" cols="50"></textarea>
+      </div>
+    </div>
+
+
+    <div class="row" id="row3">
+      <div class="col-md-2"></div>
+      <div class="col-md-1" class="label">To PID</div>
+      <div class="col-md-1" style="margin-right: -4%"></div>
+      <div class="col-md-4" class="label">
+        <!-- <input type="text" placeholder="CON-SNT-1"> -->
+        <input type="text">
+      </div>
+    </div>
+
+
+
+    <div class="row" id="row3">
+      <div class="col-md-2"></div>
+      <div class="col-md-1" class="label">Sales Order Number</div>
+      <div class="col-md-1" style="margin-right: -10.75%"></div>
+      <div class="col-md-4" class="label">
+        <!-- <textarea rows="1" cols="50" placeholder="105840335, 106027813, 105981923, 106128316, 106351102"></textarea> -->
+        <textarea rows="1" cols="50"></textarea>
+      </div>
+    </div>
+
+
+    <div class="row" id="row3">
+      <div class="col-md-2"></div>
+      <div class="col-md-1" class="label">Territory Type</div>
+      <div class="col-md-1" style="margin-right: -7.7%"></div>
+      <div class="col-md-4" class="label">
+        <input type="text" placeholder="DR" disabled>
+      </div>
+    </div>
+
+    <div class="row" id="row3">
+      <div class="col-md-2"></div>
+      <div class="col-md-1" class="label">Trans Group Code</div>
+      <div class="col-md-1" style="margin-right: -9.65%"></div>
+      <div class="col-md-4" class="label">
+        <input type="text" placeholder="MANAJ" disabled>
+      </div>
+    </div>
+
+    <div class="row" id="row4" style="margin-bottom: 3%">
+      <div class="col-md-4"></div>
+
+      <div class="col-md-1" class="label" style="margin-left:11.3%">
+        <button style="background-color: #E0E0E0">Reset</button>
+      </div>
+      <div class="col-md-1" class="label">
+        <a routerLink="/programDetails"><button>Execute</button></a>
+      </div>
+    </div>
+  </div>
 </div>
