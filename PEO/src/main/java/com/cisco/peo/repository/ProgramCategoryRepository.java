@@ -10,6 +10,6 @@ import com.cisco.peo.bean.ProgramCategory;
 
 public interface ProgramCategoryRepository extends JpaRepository<ProgramCategory, String>{
 
-	@Query("SELECT pc.programCategory FROM ProgramCategory pc")
-	public List<ProgramCategory> fetchProgramCategory();
+	@Query("SELECT pc.programCategory FROM ProgramCategory pc where pc.categoryType=?1")
+	public List<ProgramCategory> fetchProgramCategory(String programType);
 }

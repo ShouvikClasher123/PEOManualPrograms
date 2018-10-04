@@ -1,0 +1,8 @@
+<div class="wrapper">
+  <form class="form-signin" [formGroup]="loginForm">       
+    <h2 class="form-signin-heading">Please login</h2>
+    <input type="text" class="form-control" formControlName="userName" placeholder="User Id"  autofocus="" />
+    <input type="password" class="form-control" formControlName="password" placeholder="Password" required=""/>      
+    <button class="" type="submit" (click)="showData()" style="margin-left: auto;margin-right:auto" [disabled]="!loginForm.valid">Login</button>   
+  </form>
+</div>

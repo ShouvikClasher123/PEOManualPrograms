@@ -7,33 +7,42 @@ import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 
 @Entity
-@Table(name="xxpeo_program_category")
+@Table(name="xxpeo_prgm_type_categry_map")
+//@GenericGenerator(name="idgen", strategy="increment")
+
 public class ProgramCategory {
 	
+
 	@Id
-	@Column(name="program_category_id")
-	private Integer programCategoryId;
-	
 	@Column(name="program_category")
 	@NotNull
 	private String programCategory;
 	
-	public Integer getProgramCategoryId() {
-		return programCategoryId;
-	}
-	public void setProgramCategoryId(Integer programCategoryId) {
-		this.programCategoryId = programCategoryId;
-	}
+	@Column(name="category_type")
+	private String categoryType;
+
 	public String getProgramCategory() {
 		return programCategory;
 	}
+
 	public void setProgramCategory(String programCategory) {
 		this.programCategory = programCategory;
 	}
-	
+
+	public String getCategoryType() {
+		return categoryType;
+	}
+
+	public void setCategoryType(String categoryType) {
+		this.categoryType = categoryType;
+	}
+
 	@Override
 	public String toString() {
-		return "ProgramCategory [programCategoryId=" + programCategoryId + ", programCategory="
-				+ programCategory + "]";
+		return "ProgramCategory [programCategory=" + programCategory
+				+ ", categoryType=" + categoryType + "]";
 	}
-}
+
+	
+	
+	}

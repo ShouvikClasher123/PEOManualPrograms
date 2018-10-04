@@ -27,6 +27,43 @@ public class Program {
 	@Column(name="program_category")
 	private String programCategory;
 	
+	@Column(name="status")
+	private Integer status;
+	
+	@Column(name="approver_id")
+	private String approverId;
+	
+	@Column(name="adjustment_type")
+	private String adjustmentType;
+	
+	@Column(name="category_type")
+	private String categoryType;
+	
+	
+	public String getCategoryType() {
+		return categoryType;
+	}
+	public void setCategoryType(String categoryType) {
+		this.categoryType = categoryType;
+	}
+	public Integer getStatus() {
+		return status;
+	}
+	public void setStatus(Integer status) {
+		this.status = status;
+	}
+	public String getApproverId() {
+		return approverId;
+	}
+	public void setApproverId(String approverId) {
+		this.approverId = approverId;
+	}
+	public String getAdjustmentType() {
+		return adjustmentType;
+	}
+	public void setAdjustmentType(String adjustmentType) {
+		this.adjustmentType = adjustmentType;
+	}
 	public String getProgramType() {
 		return programType;
 	}
@@ -51,10 +88,13 @@ public class Program {
 	public void setProgramName(String programName) {
 		this.programName = programName;
 	}
-	
 	@Override
 	public String toString() {
-		return "Program [programId=" + programId + ", programName="
-				+ programName + "]";
+		return "Program [programId=" + programId + ", programName=" + programName + ", programType=" + programType
+				+ ", programCategory=" + programCategory + ", status=" + status + ", approverId=" + approverId
+				+ ", adjustmentType=" + adjustmentType + ", categoryType=" + categoryType + "]";
 	}
+	
+	
+	
 }

@@ -1,61 +1,458 @@
-<div class="row" id="row1">
-  <img src="../../assets/images/1.png" style=" margin-left: auto;margin-right: auto;">
-</div>
+<div id="page-1" [hidden]="!page1Flag">
 
-<div class="row" id="row1">
-  <div class="col-md-1"></div>
-  <div class="col-md-9" id="header">PEO Automation</div>
-</div>
+  <div class="container2" [hidden]="!manualUploadFlag">
+    <ul class="progressbar">
+      <li [ngClass]="{'active':true}">Program Setup</li>
+      <li [ngClass]="{'active':flag2==true}">Upload</li>
+      <li [ngClass]="{'active':flag3==true}">Approval</li>
+    </ul>
+    <!-- <span style="font-size: 10px; margin-left:auto;float:right; margin-top: 0.5%;">*Green color<img src="../../assets/images/Circle.PNG"
+        style="width:15px;height:15px;"> indicates steps executed for a program so far</span> -->
 
+    <br>
+  </div>
+  <div class="container2" [hidden]="manualUploadFlag">
+    <ul class="progressbar">
+      <li class="active">Program Setup</li>
+      <li>Input Parameters</li>
+      <li>Validation</li>
+      <li>Approval</li>
+    </ul>
+    <!-- <span style="font-size: 10px; margin-left:auto;float:right; margin-top: 0.5%;">*Green color<img src="../../assets/images/Circle.PNG"
+          style="width:15px;height:15px;"> indicates steps executed for a program so far</span> -->
 
-<div class="row">
-  <hr class="col-md-12" id="hrs">
-</div>
-
-<div id="section-1">
-  <div class="row">
-    <div class="col-md-4"></div>
-    <div class="col-md-4" id="heading" style="margin-left:-2%;">Select a program of create new</div>
+    <br>
   </div>
 
-  <form [formGroup]="selectProgramForm">
-    <div class="row" id="row3">
+  <!-- <div class="row" id="row1">
+    <img src="../../assets/images/1.png" style=" margin-left: auto;margin-right: auto;">
+  </div> -->
+
+  <div class="row" id="row1">
+    <div class="col-md-1"></div>
+    <div class="col-md-9" id="header">PEO Automation</div>
+  </div>
+
+
+  <div class="row">
+    <hr class="col-md-12" id="hrs">
+  </div>
+
+  <div id="section-1">
+    <div class="row">
+      <div class="col-md-4"></div>
+      <div class="col-md-4" id="heading" style="margin-left:-2%;">Select a program of create new</div>
+    </div>
+
+    <form [formGroup]="selectProgramForm">
+      <div class="row" id="row3">
+        <div class="col-md-2"></div>
+        <div class="col-md-2" class="label">Select Program</div>
+        <div class="col-md-5" class="label">
+          <select (change)="selectChangeHandler($event)" style=" width:252px;" formControlName="programName">
+            <option [ngValue]="null" disabled>Select Program</option>
+            <option *ngFor="let name of names">
+              {{name.programName}}
+            </option>
+          </select>
+        </div>
+        <div class="col-md-2" class="label" style="margin-left: 3%">
+          <button (click)="sec2Flag=true;sec2_NextFlag=false;sec2_EditFlag=false;setManualUploadFlag(false);">Create
+            New</button>
+        </div>
+      </div>
+
+
+      <div class="row" style="margin-left:19.3%;margin-top:1%">
+        <div class="col-md-5 radio">
+          <form>
+            <label class="radio-inline label">
+              <input type="radio" name="optradio" (click)="setManualUploadFlag(false);" [checked]='!manualUploadFlag'>Automated
+              Process
+            </label>
+            &nbsp;&nbsp;&nbsp;
+            <label class="radio-inline label">
+              <input type="radio" name="optradio" (click)="setManualUploadFlag(true);" [checked]='manualUploadFlag'>Manual
+              Process
+            </label>
+          </form>
+        </div>
+        <div class="col-md-1" class="label">
+          <button (click)="page1Flag=false;page2Flag=true" [disabled]="!selectProgramForm.valid">Next</button>
+        </div>
+        <div class="col-md-1" class="label">
+          <button (click)="sec2_EditFlag=true;sec2Flag=false;sec2_NextFlag=false;sec3Flag=false;manualUploadFlag=false"
+            [disabled]="!selectProgramForm.valid">Edit</button>
+        </div>
+        <div class="col-md-1" class="label">
+          <button>Set Proxy</button>
+        </div>
+      </div>
+    </form>
+
+
+  </div>
+
+  <div class="row">
+    <hr class="col-md-12">
+  </div>
+
+  <div id="section-2" [hidden]="!sec2Flag">
+    <form [formGroup]="createNewForm">
+      <div class="row">
+        <div class="col-md-4"></div>
+        <div class="col-md-6" id="heading" style="margin-left:-9%;">Provide program name and map it to Program Type and
+          Category</div>
+      </div>
+
+      <div class="row" id="row3" style="margin-bottom: -0.5%;">
+        <div class="col-md-2"></div>
+        <div class="col-md-2" class="label">Program Name *</div>
+        <div class="col-md-1" class="label" style="padding-right:0.3%;">
+          <select formControlName="year">
+            <option [ngValue]="null" disabled>Year</option>
+            <option>2018</option>
+            <option>2017</option>
+          </select>
+        </div>
+        _
+        <div class="col-md-1" class="label" style="padding-left:0.3%; padding-right:0.3%;">
+          <select formControlName="terrType">
+            <option [ngValue]="null" disabled>Select Theatre</option>
+            <option>APJC</option>
+            <option>AMER</option>
+            <option>EMEA</option>
+            <option>WW</option>
+          </select>
+        </div>
+        _
+        <div class="col-md-1" class="label" style="padding-left:0.3%; padding-right:0.3%;">
+          <input placeholder="FET" formControlName="fet">
+        </div> _
+        <div class="col-md-1" class="label" style="padding-left:0.3%; padding-right:0.3%;">
+          <input placeholder="Unique Name" formControlName="uniqueName">
+        </div>
+      </div>
+
+      <div class="row" id="row3">
+        <div class="col-md-2"></div>
+        <div class="col-md-1" class="label">Program Type *</div>
+        <div class="col-md-1" style="margin-right: -7.82%"></div>
+        <div class="col-md-4" class="label">
+          <select formControlName="programType">
+            <option [ngValue]="null" disabled>Select Program Type</option>
+            <option *ngFor="let type of programTypes">
+              {{type.programType}}
+            </option>
+          </select>
+        </div>
+      </div>
+
+      <div class="row" id="row3">
+        <div class="col-md-2"></div>
+        <div class="col-md-1" class="label">Upload Type *</div>
+        <div class="col-md-1" style="margin-right: -7.28%"></div>
+        <div class="col-md-4" class="label">
+          <select>
+            <option [ngValue]="null" disabled>Select Upload Type</option>
+            <option>Attainment Adjustments</option>
+            <option>Payment Adjustments</option>
+          </select>
+        </div>
+      </div>
+
+
+      <div class="row" id="row3">
+        <div class="col-md-2"></div>
+        <div class="col-md-1" class="label">Adjustment Type *</div>
+        <div class="col-md-1" style="margin-right: -9.33%"></div>
+        <div class="col-md-4" class="label">
+          <select formControlName="adjustmentType">
+            <option [ngValue]="null" disabled>Select Adjustment Type</option>
+            <option>Manual Transaction</option>
+            <option>Achievement</option>
+            <option>Node Summary</option>
+          </select>
+        </div>
+      </div>
+
+
+      <div class="row" id="row3">
+        <div class="col-md-2"></div>
+        <div class="col-md-1" class="label">Approver Id *</div>
+        <div class="col-md-1" style="margin-right: -6.7%"></div>
+        <div class="col-md-1" class="label">
+          <input placeholder="Approver Id" formControlName="approverId">
+        </div>
+      </div>
+
+
+
+
+
+      <div class="row" id="row3">
+        <div class="col-md-2"></div>
+        <div class="col-md-1" class="label">Category Type *</div>
+        <div class="col-md-1" style="margin-right: -7.9%"></div>
+        <div class="col-md-4" class="label">
+          <select formControlName="categoryType" (change)="selectChangeHandler2($event)">
+            <option [ngValue]="null" disabled>Select Category Type</option>
+            <option *ngFor="let type of categoryTypes">
+              {{type.categoryType}}
+            </option>
+          </select>
+        </div>
+      </div>
+
+
+      <div class="row" id="row3">
+        <div class="col-md-2"></div>
+        <div class="col-md-1" class="label">Category *</div>
+        <div class="col-md-1" style="margin-right: -5.33%"></div>
+        <div class="col-md-6" class="label">
+          <select formControlName="category">
+            <option [ngValue]="null" disabled>Select Category</option>
+            <option *ngFor="let category of programCategories">
+              {{category}}
+            </option>
+          </select>
+        </div>
+      </div>
+
+      <div class="row" id="row4" style="margin-left:19.3%">
+        <div class="col-md-5"></div>
+        <div class="col-md-1" class="label">
+          <button (click)="showFormData()" [disabled]="!createNewForm.valid">Save</button>
+        </div>
+      </div>
+
+      <div class="row">
+        <span class="col-md-12 label" [hidden]="!showFlag" style="color:green; text-align: center; margin-top:1%;">
+          Program
+          Created Successfully
+        </span>
+
+
+      </div>
+
+      <div class="row">
+        <hr class="col-md-12" id="hrs">
+      </div>
+    </form>
+  </div>
+
+
+  <div id="section-2_Edit" [hidden]="!sec2_EditFlag">
+    <form [formGroup]="editForm">
+      <div class="row">
+        <div class="col-md-4"></div>
+        <div class="col-md-6" id="heading" style="margin-left:-9%;">Provide program name and map it to Program Type and
+          Category</div>
+      </div>
+
+      <div class="row" id="row3" style="margin-bottom: -0.5%;">
+        <div class="col-md-2"></div>
+        <div class="col-md-2" class="label">Program Name</div>
+        <div class="col-md-1" class="label" style="padding-right:0.3%;">
+          <input formControlName="year" [ngModel]="editData.year" style=" width:35px;" disabled>
+        </div>
+        _
+        <div class="col-md-1" class="label" style="padding-left:0.3%; padding-right:0.3%;">
+          <input formControlName="terrType" [ngModel]="editData.terrType" style=" width:35px;" disabled>
+        </div>
+        _
+        <div class="col-md-1" class="label" style="padding-left:0.3%; padding-right:0.3%;">
+          <input [ngModel]="editData.fet" formControlName="fet" disabled>
+        </div> _
+        <div class="col-md-1" class="label" style="padding-left:0.3%; padding-right:0.3%;">
+          <input [ngModel]="editData.uniqueName" formControlName="uniqueName" disabled>
+        </div>
+      </div>
+
+      <div class="row" id="row3">
+        <div class="col-md-2"></div>
+        <div class="col-md-1" class="label">Program Type *</div>
+        <div class="col-md-1" style="margin-right: -8.52%"></div>
+        <div class="col-md-4" class="label">
+          <select formControlName="programType">
+            <option [ngValue]="null" disabled>Select Program Type</option>
+            <option *ngFor="let type of programTypes">
+              {{type.programType}}
+            </option>
+          </select>
+        </div>
+      </div>
+
+      <div class="row" id="row3">
+        <div class="col-md-2"></div>
+        <div class="col-md-1" class="label">Upload Type *</div>
+        <div class="col-md-1" style="margin-right: -8%"></div>
+        <div class="col-md-4" class="label">
+          <select>
+            <option [ngValue]="null" disabled>Select Upload Type</option>
+            <option selected>Attainment Adjustments</option>
+            <option>Payment Adjustments</option>
+          </select>
+        </div>
+      </div>
+
+
+      <div class="row" id="row3">
+        <div class="col-md-2"></div>
+        <div class="col-md-1" class="label">Adjustment Type</div>
+        <div class="col-md-1" style="margin-right: -9.33%"></div>
+        <div class="col-md-4" class="label">
+          <select formControlName="adjustmentType">
+            <option [ngValue]="null" disabled>Change Adjustment Type</option>
+            <option>Manual Transaction</option>
+            <option>Achievement</option>
+            <option>Node Summary</option>
+          </select>
+        </div>
+      </div>
+
+
+      <div class="row" id="row3">
+        <div class="col-md-2"></div>
+        <div class="col-md-1" class="label">Approver Id</div>
+        <div class="col-md-1" style="margin-right: -6.7%"></div>
+        <div class="col-md-1" class="label">
+          <input formControlName="approverId" formControlName="approverId">
+        </div>
+      </div>
+
+
+      <div class="row" id="row3">
+        <div class="col-md-2"></div>
+        <div class="col-md-1" class="label">Category Type</div>
+        <div class="col-md-1" style="margin-right: -7.9%"></div>
+        <div class="col-md-4" class="label">
+          <select formControlName="categoryType" (change)="selectChangeHandler2($event)">
+            <option [ngValue]="null" disabled>Change Category Type</option>
+            <option *ngFor="let type of categoryTypes">
+              {{type.categoryType}}
+            </option>
+          </select>
+        </div>
+      </div>
+
+
+      <div class="row" id="row3">
+        <div class="col-md-2"></div>
+        <div class="col-md-1" class="label">Category</div>
+        <div class="col-md-1" style="margin-right: -5.33%"></div>
+        <div class="col-md-6" class="label">
+          <select formControlName="category">
+            <option [ngValue]="null" disabled>Change Category</option>
+            <option *ngFor="let category of programCategories">
+              {{category}}
+            </option>
+          </select>
+        </div>
+      </div>
+
+      <div class="row" id="row4" style="margin-left:19.3%">
+        <div class="col-md-5"></div>
+        <div class="col-md-1" class="label">
+          <button (click)="showFormData2();">Save</button>
+        </div>
+      </div>
+
+      <div class="row">
+        <span class="col-md-12 label" [hidden]="!showFlag2" *ngIf="editForm.dirty" style="color:green; text-align: center; margin-top:1%;">
+          Program
+          updated successfully
+        </span>
+      </div>
+
+      <div class="row">
+        <hr class="col-md-12" id="hrs">
+      </div>
+    </form>
+  </div>
+
+
+  <div id="ManualUpload" [hidden]="!manualUploadFlag">
+    <div class="row">
+      <div class="col-md-1"></div>
+      <div class="col-md-9" id="header" style="font-size: 24px; margin-left:2%">Manual Upload</div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-3"></div>
+      <div class="col-md-6">
+        <span id="colorize">Comments</span>
+        &nbsp;
+        <textarea rows="4" cols="55" style="height:80px;float:right;" placeholder="Uploader Comments">
+
+             </textarea>
+      </div>
+    </div>
+    <br>
+
+    <div class="row">
+      <div class="col-md-3"></div>
+      <div class="col-md-6">
+        <span id="colorize" style="padding-right: 12%!important">FileName</span>
+        &nbsp;
+        <input type="file" class="upload" id="file" (change)="getFileDetails($event)" style="height: 20px;font-size: 14px">
+
+      </div>
+    </div>
+
+
+
+    <div class="row" id="row4">
+      <div class="col-md-1"></div>
+      <div class="col-md-1" class="label" style="margin-top:0.5%;margin-left: 1.45%">
+        <a href="javascript:void(0)" style="font-size:14px">Download Template</a>
+      </div>
+      <div class="col-md-1"></div>
       <div class="col-md-2"></div>
-      <div class="col-md-2" class="label">Select Program</div>
-      <div class="col-md-5" class="label">
-        <select (change)="selectChangeHandler($event)" style=" width:252px;"  formControlName="programName">
-          <option [ngValue]="null" disabled>Select Program</option>
-          <option *ngFor="let name of names">
-            {{name.programName}}
-          </option>
-        </select>
+      <div class="col-md-2" class="label" style="margin-left: -6%;">
+        <button (click)="checkFile();flag2=true;fileUploadedFlag=true" [disabled]="!selectedFile">Upload</button>
       </div>
-      <div class="col-md-2" class="label" style="margin-left: 3%">
-        <button (click)="sec2Flag=true">Create New</button>
+      <div class="col-md-1"></div>
+      <div class="col-md-2" class="label" style="margin-left: -8%;">
+        <a routerLink="/programApproval">
+          <button [disabled]="!fileUploadedFlag">Next</button>
+        </a>
       </div>
     </div>
-
-
-    <div class="row" style="margin-left:19.3%;margin-top:1%">
-      <div class="col-md-5"></div>
-      <div class="col-md-1" class="label">
-        <button (click)="sec3Flag=true"  [disabled]="!selectProgramForm.valid">Next</button>
+    <br>
+    <div class="message" [hidden]="!uploadFlag" style="margin-left: -2%">
+      <div id="errorFile" [hidden]="validFileFlag">
+        <div class="row">
+          <div class="col-md-3"></div>
+          <div class="col-md-6">
+            <span style=" float:left; margin-top: 0.5%; color:red" class="label">*File could not be uploaded because
+              some
+              of the records are invalid</span>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-3"></div>
+          <div class="col-md-6">
+            <span style=" float:left; margin-top: 0.5%; color:red" class="label">*To check errors, <a href="javascript:void(0)">download</a>
+              the file</span>
+          </div>
+        </div>
       </div>
-      <div class="col-md-1" class="label">
-        <button (click)="sec2_1Flag=true"  [disabled]="!selectProgramForm.valid">Edit</button>
+      <div id="validFile" [hidden]="!validFileFlag">
+        <div class="row">
+          <div class="col-md-3"></div>
+          <div class="col-md-6">
+            <span style=" float:left; margin-top: 0.5%; color:green" class="label">*File uploaded successfully</span>
+          </div>
+        </div>
+
       </div>
     </div>
-  </form>
+  </div>
 
 
-</div>
+  <div id="section-2_Next" [hidden]="!sec2_NextFlag">
 
-<div class="row">
-  <hr class="col-md-12">
-</div>
-
-<div id="section-2" [hidden]="!sec2Flag">
-  <form [formGroup]="createNewForm">
     <div class="row">
       <div class="col-md-4"></div>
       <div class="col-md-6" id="heading" style="margin-left:-9%;">Provide program name and map it to Program Type and
@@ -66,28 +463,18 @@
       <div class="col-md-2"></div>
       <div class="col-md-2" class="label">Program Name</div>
       <div class="col-md-1" class="label" style="padding-right:0.3%;">
-        <select formControlName="year">
-          <option [ngValue]="null" disabled>Year</option>
-          <option>2018</option>
-          <option>2017</option>
-        </select>
+        <input [ngModel]="editData.year" style=" width:35px;" disabled>
       </div>
       _
       <div class="col-md-1" class="label" style="padding-left:0.3%; padding-right:0.3%;">
-        <select formControlName="terrType">
-          <option [ngValue]="null" disabled>Select Terr Type</option>
-          <option>APJC</option>
-          <option>AMER</option>
-          <option>EMEA</option>
-          <option>WW</option>
-        </select>
+        <input [ngModel]="editData.terrType" style=" width:35px;" disabled>
       </div>
       _
       <div class="col-md-1" class="label" style="padding-left:0.3%; padding-right:0.3%;">
-        <input placeholder="FET" formControlName="fet">
+        <input [ngModel]="editData.fet" disabled>
       </div> _
       <div class="col-md-1" class="label" style="padding-left:0.3%; padding-right:0.3%;">
-        <input placeholder="Unique Name" formControlName="uniqueName">
+        <input [ngModel]="editData.uniqueName" disabled>
       </div>
     </div>
 
@@ -97,12 +484,7 @@
       <div class="col-md-1" class="label">Type</div>
       <div class="col-md-1" style="margin-right: -3.33%"></div>
       <div class="col-md-4" class="label">
-        <select formControlName="type">
-          <option [ngValue]="null" disabled>Select Type</option>
-          <option *ngFor="let type of programTypes">
-            {{type.programType}}
-          </option>
-        </select>
+        <input [ngModel]="editData.type" disabled>
       </div>
     </div>
 
@@ -112,110 +494,167 @@
       <div class="col-md-1" class="label">Category</div>
       <div class="col-md-1" style="margin-right: -5.33%"></div>
       <div class="col-md-6" class="label">
-        <select formControlName="category">
-          <option [ngValue]="null" disabled>Select Category</option>
-          <option *ngFor="let category of programCategories">
-            {{category.programCategory}}
-          </option>
-        </select>
+        <input [ngModel]="editData.category" disabled style="width:200px">
       </div>
     </div>
 
     <div class="row" id="row4" style="margin-left:19.3%">
       <div class="col-md-5"></div>
       <div class="col-md-1" class="label">
-        <button (click)="showFormData()" [disabled]="!createNewForm.valid">Save</button>
+        <button (click)="showFormData2()" disabled>Save</button>
       </div>
     </div>
-  </form>
-</div>
 
 
-<div class="row">
-  <span class="col-md-12 label" [hidden]="!showFlag" style="color:green; text-align: center; margin-top:1%;"> Program
-    Created Successfully
-  </span>
-  <!-- <span class="col-md-12 label" *ngIf="(createNewForm.controls.year.invalid && createNewForm.controls.years.dirty)" style="color:red; text-align: center; margin-top:1%;">
-    Incorrect Year
-  </span> -->
-
-
-</div>
-
-<div class="row">
-  <hr class="col-md-12">
-</div>
-
-<div id="section-3" [hidden]="!sec3Flag">
-  <div class="row">
-    <div class="col-md-4"></div>
-    <div class="col-md-6" id="heading" style="margin-left:-9%;">Provide program specific input data required for
-      program
-      execution</div>
   </div>
 
-  <div class="rectangle">
-    <div class="row" id="row3">
-      <div class="col-md-2"></div>
-      <div class="col-md-1" class="label">From PID</div>
-      <div class="col-md-1" style="margin-right: -5.33%"></div>
-      <div class="col-md-4" class="label">
-        <!-- <textarea rows="1" cols="50" placeholder="AS-IOT-CNSLT, AS-CIE-SME"></textarea> -->
-        <textarea rows="1" cols="50"></textarea>
-      </div>
+
+
+
+
+
+</div>
+
+<div id="page-2" [hidden]="!page2Flag">
+
+  <!-- <div class="container2">
+    <ul class="progressbar">
+      <li [ngClass]="{'active':flag1==true}">Program Setup</li>
+      <li [ngClass]="{'active':flag2==true}">Input Parameters</li>
+      <li [ngClass]="{'active':flag3==true}">Validation</li>
+      <li [ngClass]="{'active':flag4==true}">Approval</li>
+    </ul>
+    <!-- <span style="font-size: 10px; margin-left:auto;float:right; margin-top: 0.5%;">*Green color<img src="../../assets/images/Circle.PNG"
+            style="width:15px;height:15px;"> indicates steps executed for a program so far</span>
+     -->
+  <!-- <br> -->
+  <!-- </div> --> -->
+
+  <div class="container2">
+    <ul class="progressbar">
+      <li class="active">Program Setup</li>
+      <li class="active">Input Parameters</li>
+      <li>Validation</li>
+      <li>Approval</li>
+    </ul>
+    <!-- <span style="font-size: 10px; margin-left:auto;float:right; margin-top: 0.5%;">*Green color<img src="../../assets/images/Circle.PNG"
+          style="width:15px;height:15px;"> indicates steps executed for a program so far</span> -->
+
+    <br>
+  </div>
+
+  <!-- <div class="row" id="row1">
+    <img src="../../assets/images/2.png" style=" margin-left: auto;margin-right: auto;">
+  </div> -->
+
+  <div class="row" id="row1">
+    <div class="col-md-1"></div>
+    <div class="col-md-9" id="header">PEO Automation</div>
+  </div>
+
+
+  <div class="row">
+    <hr class="col-md-12" id="hrs">
+  </div>
+
+
+  <div id="section-3">
+    <div class="row">
+      <div class="col-md-3"><button (click)="page2Flag=false;page1Flag=true">Previous</button></div>
+      <div class="col-md-7" id="heading">Provide program specific input data required for
+        program
+        execution</div>
+      <div class="col-md-2" style=" float:right;"><a routerLink="/programDetails"><button>Next</button></a></div>
     </div>
 
+    <form [formGroup]="inputParamForm">
+      <div class="rectangle">
 
-    <div class="row" id="row3">
-      <div class="col-md-2"></div>
-      <div class="col-md-1" class="label">To PID</div>
-      <div class="col-md-1" style="margin-right: -4%"></div>
-      <div class="col-md-4" class="label">
-        <!-- <input type="text" placeholder="CON-SNT-1"> -->
-        <input type="text">
+        <div class="row" id="row3">
+          <div class="col-md-4" style="margin-left:-5.2% "></div>
+          <div class="col-md-5" class="label">
+            {{selectedProgram}}
+          </div>
+
+        </div>
+
+
+
+
+
+        <div class="row" id="row3">
+          <div class="col-md-2"></div>
+          <div class="col-md-1" class="label">From PID *</div>
+          <div class="col-md-1" style="margin-right: -5.33%"></div>
+          <div class="col-md-4" class="label">
+            <!-- <textarea rows="1" cols="50" placeholder="AS-IOT-CNSLT, AS-CIE-SME"></textarea> -->
+            <textarea rows="1" cols="50" [(ngModel)]="inputParamsData.fromPid" formControlName="fromPid"></textarea>
+          </div>
+        </div>
+
+
+        <div class="row" id="row3">
+          <div class="col-md-2"></div>
+          <div class="col-md-1" class="label">To PID *</div>
+          <div class="col-md-1" style="margin-right: -3.9%"></div>
+          <div class="col-md-4" class="label">
+            <!-- <input type="text" placeholder="CON-SNT-1"> -->
+            <input type="text" formControlName="toPid" [(ngModel)]="inputParamsData.toPid">
+          </div>
+        </div>
+
+
+
+        <div class="row" id="row3">
+          <div class="col-md-2"></div>
+          <div class="col-md-1" class="label">Sales Order Number</div>
+          <div class="col-md-1" style="margin-right: -10%"></div>
+          <div class="col-md-4" class="label">
+            <!-- <textarea rows="1" cols="50" placeholder="105840335, 106027813, 105981923, 106128316, 106351102"></textarea> -->
+            <textarea rows="1" cols="50" formControlName="soNum" [(ngModel)]="inputParamsData.soNum"></textarea>
+          </div>
+        </div>
+
+
+        <div class="row" id="row3">
+          <div class="col-md-2"></div>
+          <div class="col-md-1" class="label">Theatre</div>
+          <div class="col-md-1" style="margin-right: -3.9%"></div>
+          <div class="col-md-4" class="label">
+            <input type="text" formControlName="territoryType" [(ngModel)]="inputParamsData.territoryType" disabled>
+          </div>
+        </div>
+
+        <div class="row" id="row3">
+          <div class="col-md-2"></div>
+          <div class="col-md-1" class="label">Trans Group Code</div>
+          <div class="col-md-1" style="margin-right: -8.8%"></div>
+          <div class="col-md-4" class="label">
+            <input type="text" formControlName="transGroupCode" [(ngModel)]="inputParamsData.transGroupCode" disabled>
+          </div>
+        </div>
+        <br>
+        <div class="row" id="row4">
+          <div class="col-md-2"></div>
+          <div class="col-md-1" class="label" style="margin-right:-11.3%">
+            <button (click)="showFormData3()" [disabled]="!inputParamForm.valid">Save</button>
+          </div>
+          <div class="col-md-1" class="label" style="margin-left:11.3%">
+            <button (click)="inputParamForm.reset()" style="background-color: #E0E0E0">Reset</button>
+          </div>
+          <div class="col-md-2" class="label">
+            <a routerLink="/programDetails"><button style="width:100%" (click)="showFormData3()" [disabled]="!inputParamForm.valid">Save
+                and Execute</button></a>
+          </div>
+        </div>
+
+        <div class="row" style="margin-bottom: 1%">
+          <span class="col-md-12 label" [hidden]="!showFlag3" style="color:green; text-align: center; margin-top:1%;">
+            Input Params
+            updated successfully
+          </span>
+        </div>
       </div>
-    </div>
-
-
-
-    <div class="row" id="row3">
-      <div class="col-md-2"></div>
-      <div class="col-md-1" class="label">Sales Order Number</div>
-      <div class="col-md-1" style="margin-right: -10.75%"></div>
-      <div class="col-md-4" class="label">
-        <!-- <textarea rows="1" cols="50" placeholder="105840335, 106027813, 105981923, 106128316, 106351102"></textarea> -->
-        <textarea rows="1" cols="50"></textarea>
-      </div>
-    </div>
-
-
-    <div class="row" id="row3">
-      <div class="col-md-2"></div>
-      <div class="col-md-1" class="label">Territory Type</div>
-      <div class="col-md-1" style="margin-right: -7.7%"></div>
-      <div class="col-md-4" class="label">
-        <input type="text" placeholder="DR" disabled>
-      </div>
-    </div>
-
-    <div class="row" id="row3">
-      <div class="col-md-2"></div>
-      <div class="col-md-1" class="label">Trans Group Code</div>
-      <div class="col-md-1" style="margin-right: -9.65%"></div>
-      <div class="col-md-4" class="label">
-        <input type="text" placeholder="MANAJ" disabled>
-      </div>
-    </div>
-
-    <div class="row" id="row4" style="margin-bottom: 3%">
-      <div class="col-md-4"></div>
-
-      <div class="col-md-1" class="label" style="margin-left:11.3%">
-        <button style="background-color: #E0E0E0">Reset</button>
-      </div>
-      <div class="col-md-1" class="label">
-        <a routerLink="/programDetails"><button>Execute</button></a>
-      </div>
-    </div>
+    </form>
   </div>
 </div>

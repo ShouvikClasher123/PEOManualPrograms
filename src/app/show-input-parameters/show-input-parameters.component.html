@@ -21,8 +21,9 @@
     <div class="col-md-2"></div>
     <div class="col-md-1" class="label">From PID</div>
     <div class="col-md-1" style="margin-right: -5.33%"></div>
-    <div class="col-md-4" class="label">
-      <textarea rows="1" cols="50" placeholder="AS-IOT-CNSLT, AS-CIE-SME" disabled></textarea>
+    <div class="col-md-4" class="label" style="font-weight:normal">
+        <span [textContent]="inputParamsData.fromPid" ></span>
+          
     </div>
   </div>
 
@@ -31,8 +32,8 @@
     <div class="col-md-2"></div>
     <div class="col-md-1" class="label">To PID</div>
     <div class="col-md-1" style="margin-right: -4%"></div>
-    <div class="col-md-4" class="label">
-      <input type="text" placeholder="CON-SNT-1" disabled>
+    <div class="col-md-4" class="label" style="font-weight:normal">
+        <span [textContent]="inputParamsData.toPid" ></span>
     </div>
   </div>
 
@@ -42,18 +43,18 @@
     <div class="col-md-2"></div>
     <div class="col-md-1" class="label">Sales Order Number</div>
     <div class="col-md-1" style="margin-right: -10.75%"></div>
-    <div class="col-md-4" class="label">
-      <textarea rows="1" cols="50" placeholder="105840335, 106027813, 105981923, 106128316, 106351102" disabled></textarea>
+    <div class="col-md-4" class="label" style="font-weight:normal">
+        <span [textContent]="inputParamsData.soNum" ></span>
     </div>
   </div>
 
 
   <div class="row" id="row3">
     <div class="col-md-2"></div>
-    <div class="col-md-1" class="label">Territory Type</div>
-    <div class="col-md-1" style="margin-right: -7.7%"></div>
-    <div class="col-md-4" class="label">
-      <input type="text" placeholder="DR" disabled>
+    <div class="col-md-1" class="label">Theatre</div>
+    <div class="col-md-1" style="margin-right: -4.4%"></div>
+    <div class="col-md-4" class="label" style="font-weight:normal">
+        <span [textContent]="inputParamsData.territoryType" ></span>
     </div>
   </div>
 
@@ -61,8 +62,9 @@
     <div class="col-md-2"></div>
     <div class="col-md-1" class="label">Trans Group Code</div>
     <div class="col-md-1" style="margin-right: -9.65%"></div>
-    <div class="col-md-4" class="label">
-      <input type="text" placeholder="MANAJ" disabled>
+    <div class="col-md-4" class="label" style="font-weight:normal">
+      
+        <span [textContent]="inputParamsData.transGroupCode" ></span>
     </div>
   </div>
 

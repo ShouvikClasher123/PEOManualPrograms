@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,ViewChild } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { AgGridNg2 } from 'ag-grid-angular';
 
 @Component({
   selector: 'table3',
@@ -8,25 +9,46 @@ import { HttpClient } from '@angular/common/http';
 })
 export class Table3Component implements OnInit {
 
+  @ViewChild('agGrid3') agGrid3: AgGridNg2;
+  btExport3(){
+    var params = {
+      skipHeader: false,
+      skipFooters: true,
+      skipGroups: true,
+      fileName: "Exception_Data.csv"
+  };
+    this.agGrid3.gridOptions.api.exportDataAsCsv(params);
+  }
+
   columnDefs = [
-    { headerName: 'SO#', field: 'SO#' ,width:158},
-    { headerName: 'Last Adj Date', field: 'Last Adj Date' ,width:158 },
-    { headerName: 'Last Adj Amt', field: 'Last Adj Amt' ,width:158 },
-    { headerName: 'Trans Adj Date', field: 'Trans Adj Date' ,width:158 },
-    { headerName: 'Part Num', field: 'Part Num' ,width:158 },
-    { headerName: 'Sales Rep#', field: 'Sales Rep#',width:158  },
-    { headerName: 'Territory Type', field: 'Territory Type',width:158 }
-  ];
+    { headerName: 'SO Number', field: 'soNum' ,width:158,cellStyle: {'text-align':'center'}},
+    { headerName: 'Fiscal Year', field: 'fiscalYear' ,width:158,cellStyle: {'text-align':'center'}},
+    { headerName: 'Source Trans Date', field: 'sourceTransactionDate' ,width:158,cellStyle: {'text-align':'center'}},
+    { headerName: 'SalesRep Number', field: 'salesrepNumber' ,width:158 ,cellStyle: {'text-align':'center'}},
+    { headerName: 'Territory Name', field: 'territoryName' ,width:158 ,cellStyle: {'text-align':'center'}},
+    { headerName: 'Territory Type', field: 'territoryType' ,width:158 ,cellStyle: {'text-align':'center'}},
+    { headerName: 'Part Number', field: 'partNumber' ,width:158 ,cellStyle: {'text-align':'center'}},
+    { headerName: 'Service Type', field: 'serviceType' ,width:158 ,cellStyle: {'text-align':'center'}},
+    { headerName: 'RO Flag', field: 'roFlag' ,width:158 ,cellStyle: {'text-align':'center'}},
+    
+    { headerName: 'Commission Status', field: 'commissionStatus' ,width:158 ,cellStyle: {'text-align':'center'}},
+    
+    
+    { headerName: 'REV', field: 'rev' ,width:158 ,cellStyle: {'text-align':'center'}},
+    { headerName: 'Exception Type', field: '' ,width:158 ,cellStyle: {'text-align':'center'}},
+    
+    
 
+    ];
 
+  progName=localStorage.getItem("ProgName")
   rowData: any;
-  public isCollapsed:boolean=false;
+
 
   constructor(private http: HttpClient) {
-
   }
 
   ngOnInit() {
-    this.rowData = this.http.get('https://api.myjson.com/bins/rjs1c');
+    this.rowData = this.http.get('http://localhost:8080/peo/programData/fetchValidData?programName='+this.progName+'&status=EXCEPTION');
   }
 }

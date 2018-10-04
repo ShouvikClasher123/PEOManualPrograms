@@ -1,54 +1,80 @@
+<!-- <div class="container2">
+    <ul class="progressbar">
+      <li [ngClass]="{'active':flag1==true}">Program Setup</li>
+      <li [ngClass]="{'active':flag2==true}">Input Parameters</li>
+      <li [ngClass]="{'active':flag3==true}">Validation</li>
+      <li [ngClass]="{'active':flag4==true}">Approval</li>
+    </ul>
+    <!-- <span style="font-size: 10px; margin-left:auto;float:right; margin-top: 0.5%;">*Green color<img src="../../assets/images/Circle.PNG"
+        style="width:15px;height:15px;"> indicates steps executed for a program so far</span> -->
 
-<div class="row" id="row1">
-    <img src="../../assets/images/2.png" style=" margin-left: auto;margin-right: auto;">
-</div>
+    <!-- <br> -->
+  <!-- </div> --> 
 
-<div class="row" style="margin-top: 3%;">
-  <div class="col-md-2"></div>
-  <div class="col-md-3" class="label">Program Name</div>
-  <div class="col-md-7" class="label" style="font-weight: normal;">
-    <span>{{progName}} &nbsp;&nbsp;&nbsp;&nbsp;</span>
-    <span>|&nbsp;&nbsp;&nbsp;&nbsp; PID Mapping &nbsp;&nbsp;&nbsp;&nbsp;|</span>
-    <span>&nbsp;&nbsp;&nbsp;&nbsp; Revenue from one PID to service PID</span>
-  </div>
-</div>
+  <div class="container2">
+      <ul class="progressbar">
+        <li class="active">Program Setup</li>
+        <li  class="active">Input Parameters</li>
+        <li class="active">Validation</li>
+        <li >Approval</li>
+      </ul>
+      <!-- <span style="font-size: 10px; margin-left:auto;float:right; margin-top: 0.5%;">*Green color<img src="../../assets/images/Circle.PNG"
+          style="width:15px;height:15px;"> indicates steps executed for a program so far</span> -->
+  
+      <br>
+    </div>
+
+    <div class="row" >
+      <div class="col-md-1"><a routerLink="/programCreation"><button>Previous</button></a></div>
+      <div class="col-md-3" class="label">Program Name</div>
+      <div class="col-md-4" class="label" style="font-weight: normal;">
+        <span>{{progName}} &nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp; </span>
+        <span [textContent]="editData.categoryType"></span>
+        <span> &nbsp;&nbsp;&nbsp;&nbsp;| &nbsp;&nbsp;&nbsp;&nbsp;</span>
+        <span [textContent]="editData.category"></span>
+      </div>
+      <div class="col-md-4" class="label" style="margin-left: 12%;">
+        <a routerLink="/programApproval"><button>Next</button></a>
+      </div>
+    </div>
+    <div class="row" >
+      <div class="col-md-1"></div>
+      <div class="col-md-3" class="label">Program Type</div>
+      <div class="col-md-4" class="label" style="font-weight: normal;">
+        &nbsp;
+        <span [textContent]="editData.programType"></span>
+       
+      </div>
+      
+    </div>
 
 <div class="row" style="margin-top: 3%; margin-left:-7.5%">
   <div class="col-md-3" id="heading">Final Data To Be Processed</div>
   <div class="col-md-5"></div>
-  <!-- <div class="col-md-1" class="label" style="margin-right:-2%;">No. of Rows</div>
-  <div class="col-md-1" class="label">
-      <select style="border: 1px solid #000000; ">
-        <option>5</option>
-        <option>10</option>
-      </select>
-    </div> -->
+  <!-- <div class="col-md-1" class="label" style="margin-right:-2%;">No. of Rows</div> -->
+  <!-- <div class="col-md-1" class="label">
+    <select (change)="selectChangeHandler($event)" style="border: 1px solid #000000; ">
+      <option>5</option>
+      <option>10</option>
+    </select>
+  </div> -->
 </div>
 
 <div style="display: flex; flex-direction: row">
   <div style=" overflow: hidden; flex-grow: 1">
-<ag-grid-angular 
-    style="width: 100%; height: 182px;" 
-    class="ag-theme-blue"
-    [enableSorting]="true"
-    [enableFilter]="true"
-    [animateRows]="true"
-    [pagination]="true"
-    [paginationPageSize]="5"
-    [rowData]="rowData | async" 
-    [columnDefs]="columnDefs"
-    >
-</ag-grid-angular>
-</div>
+    <ag-grid-angular #agGrid1 style="width: 100%; height: 200px;" class="ag-theme-blue" [enableSorting]="true" [enableFilter]="true"
+      [animateRows]="true" [pagination]="true" [paginationPageSize]="pageSize" [rowData]="rowData | async" [columnDefs]="columnDefs">
+    </ag-grid-angular>
+  </div>
 </div>
 
 <div class="row" id="row4">
   <div class="col-md-9"></div>
   <div class="col-md-2" class="label" style="margin-left: -1%;">
-    <button class="btn2">Send All For Approval</button>
+    <button class="btn2" (click)="showApprovalDetails();">Send All For Approval</button>
   </div>
   <div class="col-md-1" class="label" style="margin-top:0.5%">
-    <a href="#">Download</a>
+    <a href="javascript:void(0)" (click)="btExport1()">Download</a>
   </div>
 </div>
 

@@ -1,0 +1,176 @@
+<!-- <div class="container2">
+    <ul class="progressbar">
+      <li [ngClass]="{'active':flag1==true}">Program Setup</li>
+      <li [ngClass]="{'active':flag2==true}">Input Parameters</li>
+      <li [ngClass]="{'active':flag3==true}">Validation</li>
+      <li [ngClass]="{'active':flag4==true}">Approval</li>
+    </ul>
+    <!-- <span style="font-size: 10px; margin-left:auto;float:right; margin-top: 0.5%;">*Green color<img src="../../assets/images/Circle.PNG"
+        style="width:15px;height:15px;"> indicates steps executed for a program so far</span> -->
+
+<!-- <br> -->
+<!-- </div> -->
+
+<!-- <div class="container2">
+    <ul class="progressbar">
+      <li class="active">Program Setup</li>
+      <li  class="active">Input Parameters</li>
+      <li class="active">Validation</li>
+      <li class="active">Approval</li>
+    </ul>
+   
+    <br>
+  </div> -->
+<br><br><br>
+<div class="row" id="row1">
+  <div class="col-md-1"></div>
+  <div class="col-md-9" id="header" style="text-align:center;">Program Approval Page</div>
+</div>
+
+<div class="row" style="margin-top:15px;" *ngIf="loginUser=='admin'">
+  <div class="col-md-1"><a routerLink="/programLogin"><button>Previous</button></a></div>
+</div>
+
+<div class="row" style="margin-top:15px;" *ngIf="loginUser!='admin'">
+  <div class="col-md-1"><a routerLink="/programDetails"><button>Previous</button></a></div>
+</div>
+
+<br>
+<form [formGroup]="filterForm">
+  <div class="row">
+    <!-- <div class="col-md-1"></div> -->
+    <div class="col-md-1" class="label">User Id:</div>
+    <div class="col-md-1" class="label" style="font-weight: normal;margin-left:-2.5%">
+      <span>{{loginUser}} </span>
+    </div>
+    <div class="col-md-1" class="label">Batch Status:</div>
+    <div class="col-md-1" class="label" style="font-weight: normal;margin-left:-2.5%">
+      <select formControlName="batchStatus">
+        <option>All</option>
+        <option>Approved</option>
+        <option>Pending</option>
+        <option>Rejected</option>
+        <option>Timed Out</option>
+      </select>
+    </div>
+    <div class="col-md-1" class="label">Theatre:</div>
+    <div class="col-md-1" class="label" style="font-weight: normal;margin-left:-2.5%">
+      <select formControlName="theatre">
+        <option>APJC</option>
+        <option>AMER</option>
+        <option>EMEA</option>
+        <option>WW</option>
+      </select>
+    </div>
+
+
+    <div class="col-md-1" class="label">From(Upload Date):</div>
+    <div class="col-md-1" class="label" style="font-weight: normal;margin-left:-2.5%">
+      <input type="date" formControlName="fromUpload">
+    </div>
+    <div class="col-md-1" class="label">To(Upload Date):</div>
+    <div class="col-md-1" class="label" style="font-weight: normal;margin-left:-2.5%">
+      <input type="date" formControlName="toUpload">
+    </div>
+    <div class="col-md-1" class="label"><button style="height:22px !important" (click)="showFilterFormData();">Filter</button></div>
+  </div>
+</form>
+
+
+<div class="row" style="margin-top: 3%; margin-left:-7.9%">
+  <div class="col-md-3" id="heading"></div>
+  <div class="col-md-5"></div>
+  <!-- <div class="col-md-1" class="label" style="margin-right:-2%;">No. of Rows</div> -->
+  <!-- <div class="col-md-1" class="label">
+  <select (change)="selectChangeHandler($event)" style="border: 1px solid #000000; ">
+    <option>5</option>
+    <option>10</option>
+  </select>
+</div> -->
+</div>
+
+<div style="display: flex; flex-direction: row" *ngIf="loginUser=='admin'">
+  <div style=" overflow: hidden; flex-grow: 1">
+    <ag-grid-angular #agGrid style="width: 100%; height: 150px;" class="ag-theme-blue" [enableSorting]="true"
+      [enableFilter]="true" [animateRows]="true" [pagination]="true" [paginationPageSize]="pageSize" [rowData]="rowData1 | async"
+      [columnDefs]="columnDefs1" rowSelection="multiple" (rowClicked)='onRowClicked($event)'>
+    </ag-grid-angular>
+  </div>
+</div>
+
+<div style="display: flex; flex-direction: row" *ngIf="loginUser!='admin'">
+  <div style=" overflow: hidden; flex-grow: 1">
+    <ag-grid-angular #agGrid2 style="width: 100%; height: 150px;" class="ag-theme-blue" [enableSorting]="true" [enableFilter]="true"
+      [animateRows]="true" [pagination]="true" [paginationPageSize]="pageSize" [rowData]="rowData2 | async"
+      [columnDefs]="columnDefs2" (rowClicked)='onRowClicked($event)'>
+    </ag-grid-angular>
+  </div>
+</div>
+<div style="color:red;font-size:12px;    margin-top: -2%;margin-bottom: 2%;">*Click row to see the transactions
+  associated</div>
+<div class="row">
+  <div class="col-md-8">
+    <span id="colorize">Comments</span>
+    &nbsp;
+    <textarea rows="4" cols="55" style="height:55px;float:right;margin-right: 10%;" placeholder="Uploader Comments">
+
+             </textarea>
+  </div>
+  <div class="col-md-1" class="label"></div>
+  <div class="col-md-1" class="label" style="margin-left: -3%">
+    <button [hidden]="loginUser!='admin'" (click)="getSelectedRows('Approved')">Approve</button>
+  </div>
+  <div class="col-md-1" class="label">
+    <button [hidden]="loginUser!='admin'" (click)="getSelectedRows('Rejected')">Reject</button>
+
+  </div>
+  <div class="col-md-1" class="label">
+    <a href="javascript:void(0)" [hidden]="loginUser!='admin'" (click)="btExport1()">Download</a>
+
+    <a href="javascript:void(0)" [hidden]="loginUser=='admin'" (click)="btExport2()">Download</a>
+  </div>
+</div>
+
+<div class="row">
+  <hr class="col-md-12" id="hrs">
+</div>
+
+<div [hidden]="!cleanTable">
+  <div class="row" style="margin-top: 1%; margin-left:-9.9%">
+    <div class="col-md-3" id="heading">Input Parameters</div>
+    <!-- <div class="col-md-5"></div> -->
+    <!-- <div class="col-md-1" class="label" style="margin-right:-2%;">No. of Rows</div>
+          <div class="col-md-1" class="label">
+              <select style="border: 1px solid #000000; ">
+                <option>5</option>
+                <option>10</option>
+              </select>
+            </div> -->
+    <div class="col-md-1" style="margin-left:-10%; margin-top: -0.5%">
+      <button id="btn4" (click)="isCollapsed = !isCollapsed">
+        <span class="collapse-text" [hidden]="!isCollapsed">-</span>
+        <span class="collapse-text" [hidden]="isCollapsed">+</span>
+      </button>
+    </div>
+  </div>
+  <div style=" overflow: hidden; flex-grow: 1">
+    <ag-grid-angular [hidden]="!isCollapsed" style="width: 100%; height: 200px;" class="ag-theme-blue" [enableSorting]="true"
+      [enableFilter]="true" [animateRows]="true" [pagination]="true" [paginationPageSize]="pageSize" [rowData]="rowData3 | async"
+      [columnDefs]="columnDefs3">
+    </ag-grid-angular>
+    <div [hidden]="!isCollapsed" style="color:red;font-size:12px;    margin-top: -2%;margin-bottom: 2%;">*Click on
+      <button id="btn4" style="width:18px;height:18px"><span style="margin-top: -1%;">-</span></button>
+      <!-- <strong>-</strong> -->
+      to collapse this table
+
+    </div>
+
+
+  </div>
+  <div class="row" [hidden]="!cleanTable">
+    <hr class="col-md-12" id="hrs">
+  </div>
+</div>
+<pie-chart></pie-chart>
+<line-chart></line-chart>
+<bar-chart></bar-chart>
