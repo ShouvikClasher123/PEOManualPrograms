@@ -84,13 +84,13 @@ public class ProgramApprovalDetailController {
 	@CrossOrigin(allowCredentials = "true")
 	@PostMapping(value="/editApprovalDetail")
 	public void editApprovalDetail(
-			@RequestParam String programName, String flag ) {
+			@RequestParam String programName,String approverComment, String flag ) {
 		try {
 			
 			if (LOG.isInfoEnabled()) {
 				LOG.info("Request received. PathVariable is: ");
 			}
-				programApprovalDetailService.editApprovalDetail(programName, flag);
+				programApprovalDetailService.editApprovalDetail(programName, approverComment, flag);
 			
 		} catch (Exception e) {
 			this.peoException.initialize("amigaura", "order-error", (" " + e).trim(), e);

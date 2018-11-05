@@ -3,6 +3,14 @@
 @import "~ag-grid-community/dist/styles/ag-grid.css";
 @import "~ag-grid-community/dist/styles/ag-theme-blue.css";
 
+
+.ag-theme-blue .ag-cell-data-changed {
+    background-color: #cec !important; }
+  .ag-theme-blue .ag-cell-data-changed-animation {
+    background-color: transparent;
+    transition: background-color 1s; }
+
+
 .ag-header-cell-label {
     justify-content: center !important;
  }
@@ -185,12 +193,12 @@
 
   #header{
     color: #616161; 
-    font-size: 34px; 
+    font-size: 28px; 
     text-align: left; 
     }
 
 #row1{
-    margin-top:2%;
+    margin-top:-4.5%;
 }
 
 .hrs{

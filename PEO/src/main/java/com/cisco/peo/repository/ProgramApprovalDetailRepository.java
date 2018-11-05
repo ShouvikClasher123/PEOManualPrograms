@@ -23,8 +23,8 @@ public interface ProgramApprovalDetailRepository extends JpaRepository<ApprovalD
 	
 	@Transactional
 	@Modifying
-	@Query("UPDATE ApprovalDetail ad SET ad.status= ?2 WHERE ad.programName IN ?1")
-	public void editApprovalDetail(List<String> programName, String flag);
+	@Query("UPDATE ApprovalDetail ad SET ad.status= ?3, ad.approverComment=?2 WHERE ad.programName IN ?1")
+	public void editApprovalDetail(List<String> programName, String approverComment, String flag);
 	
 	@Query("SELECT ad from ApprovalDetail ad WHERE ad.status= ?2 and ad.theatre = ?5 and ad.uploadedBy=?1 and ad.uploadedOn BETWEEN ?3 and ?4")
 	public Iterable<ApprovalDetail> fetchUserFilteredDetail(String userId, String batchStatus,String fromUpload, String toUpload, String theatre);

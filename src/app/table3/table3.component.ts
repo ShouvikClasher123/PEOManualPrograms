@@ -9,6 +9,7 @@ import { AgGridNg2 } from 'ag-grid-angular';
 })
 export class Table3Component implements OnInit {
 
+  public isCollapsed:boolean;
   @ViewChild('agGrid3') agGrid3: AgGridNg2;
   btExport3(){
     var params = {

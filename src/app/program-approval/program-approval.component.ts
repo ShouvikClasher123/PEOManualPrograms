@@ -15,7 +15,9 @@ export class ProgramApprovalComponent implements OnInit {
   editData: any;
   cleanTable: boolean = false;
   isCollapsed: boolean = true;
+  isCollapsed2: boolean = false;
   filterForm: FormGroup;
+  clickedProgram: string;
   @ViewChild('agGrid') agGrid: AgGridNg2;
   @ViewChild('agGrid2') agGrid2: AgGridNg2;
 
@@ -53,6 +55,7 @@ export class ProgramApprovalComponent implements OnInit {
 
   onRowClicked(event: any) {
     console.log(event.data.programName);
+    this.clickedProgram=event.data.programName;
     this.cleanTable = true;
     this.rowData3 = this.http.get('http://localhost:8080/peo/programData/fetchValidData?programName=' + event.data.programName + '&status=CLEAN');
   }

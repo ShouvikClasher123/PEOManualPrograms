@@ -34,10 +34,10 @@ export class ProgramCreationComponent implements OnInit {
   public sec3Flag: boolean = false;
   public manualUploadFlag: boolean = false;
   public fileUploadedFlag: boolean=false;
-  private names: any;
-  private categoryTypes: any;
-  private programCategories: any;
-  private programTypes: any;
+  public names: any;
+  public categoryTypes: any;
+  public programCategories: any;
+  public programTypes: any;
   public editData: any;
   public inputParamsData:any;
   public selectedProgram: string = '';
@@ -135,7 +135,18 @@ export class ProgramCreationComponent implements OnInit {
     }
 
     }, err => console.error(err), () => console.log('done loading edit data'));
-    this.getProgramNamesService.getInputParams(this.selectedProgram).subscribe(data => { this.inputParamsData = data; console.log(data)}, err => console.error(err), () => console.log('done loading categories'));
+    this.getProgramNamesService.getInputParams(this.selectedProgram).subscribe(data => { this.inputParamsData = data; 
+      this.inputParamForm.patchValue({
+        programName: this.selectedProgram,
+        fromPid: this.inputParamsData.fromPid,
+        toPid: this.inputParamsData.toPid,
+        soNum: this.inputParamsData.soNum,
+        territoryType: this.inputParamsData.territoryType,
+        transGroupCode: this.inputParamsData.transGroupCode
+        
+  
+     }); 
+      console.log(data)}, err => console.error(err), () => console.log('done loading input params'));
     
     // this.inputParamForm.controls["fromPid"].setValue(this.inputParamsData.fromPid);
   }
@@ -165,12 +176,12 @@ export class ProgramCreationComponent implements OnInit {
     this.editData = {};
     this.inputParamsData = {};
 
-    if(localStorage.getItem("page1")!="null" && localStorage.getItem("page2")!="null"){
-      this.page1Flag=false;
-      this.page2Flag=true;
-      this.getProgramNamesService.getInputParams(this.selectedProgram).subscribe(data => { this.inputParamsData = data; console.log(data)}, err => console.error(err), () => console.log('done loading categories'));
+    // if(localStorage.getItem("page1")!="null" && localStorage.getItem("page2")!="null"){
+    //   this.page1Flag=false;
+    //   this.page2Flag=true;
+    //   this.getProgramNamesService.getInputParams(this.selectedProgram).subscribe(data => { this.inputParamsData = data; console.log(data)}, err => console.error(err), () => console.log('done loading categories'));
       
-    }
+    // }
     this.selectedProgram=localStorage.getItem("ProgName");
     this.getProgramNamesService.getNames().subscribe(data => { self.names = data; }, err => console.error(err), () => console.log('done loading names'));
     this.getProgramNamesService.getCategoryType().subscribe(data => { self.categoryTypes = data; }, err => console.error(err), () => console.log('done loading types'));

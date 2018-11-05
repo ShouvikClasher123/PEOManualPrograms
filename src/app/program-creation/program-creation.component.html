@@ -30,7 +30,7 @@
 
   <div class="row" id="row1">
     <div class="col-md-1"></div>
-    <div class="col-md-9" id="header">PEO Automation</div>
+    <div class="col-md-9" id="header">Program Set-Up</div>
   </div>
 
 
@@ -41,7 +41,7 @@
   <div id="section-1">
     <div class="row">
       <div class="col-md-4"></div>
-      <div class="col-md-4" id="heading" style="margin-left:-2%;">Select a program of create new</div>
+      <div class="col-md-4" id="heading" style="margin-left:-2%;">Select a program or create new</div>
     </div>
 
     <form [formGroup]="selectProgramForm">
@@ -381,19 +381,19 @@
     <div class="row">
       <div class="col-md-3"></div>
       <div class="col-md-6">
-        <span id="colorize">Comments</span>
-        &nbsp;
-        <textarea rows="4" cols="55" style="height:80px;float:right;" placeholder="Uploader Comments">
-
-             </textarea>
-      </div>
+          <span class="label">Comments:</span>
+          &nbsp;
+          <textarea rows="4" cols="55" style="height:55px;float:right;margin-right: 10%;margin-top: -3%" placeholder="Uploader Comments">
+      
+                   </textarea>
+        </div>
     </div>
     <br>
 
     <div class="row">
       <div class="col-md-3"></div>
-      <div class="col-md-6">
-        <span id="colorize" style="padding-right: 12%!important">FileName</span>
+      <div class="col-md-6" class="label">
+        <span  class="">File Name:</span>
         &nbsp;
         <input type="file" class="upload" id="file" (change)="getFileDetails($event)" style="height: 20px;font-size: 14px">
 
@@ -404,8 +404,8 @@
 
     <div class="row" id="row4">
       <div class="col-md-1"></div>
-      <div class="col-md-1" class="label" style="margin-top:0.5%;margin-left: 1.45%">
-        <a href="javascript:void(0)" style="font-size:14px">Download Template</a>
+      <div class="col-md-1" class="label" style="margin-top:0.5%;margin-left: 3.2%">
+        <a href="javascript:void(0)" style="font-size:12px">Download Template</a>
       </div>
       <div class="col-md-1"></div>
       <div class="col-md-2"></div>
@@ -528,7 +528,7 @@
             style="width:15px;height:15px;"> indicates steps executed for a program so far</span>
      -->
   <!-- <br> -->
-  <!-- </div> --> -->
+  <!-- </div> --> 
 
   <div class="container2">
     <ul class="progressbar">
@@ -549,7 +549,7 @@
 
   <div class="row" id="row1">
     <div class="col-md-1"></div>
-    <div class="col-md-9" id="header">PEO Automation</div>
+    <div class="col-md-9" id="header">Input Parameters Set-Up</div>
   </div>
 
 
@@ -588,7 +588,7 @@
           <div class="col-md-1" style="margin-right: -5.33%"></div>
           <div class="col-md-4" class="label">
             <!-- <textarea rows="1" cols="50" placeholder="AS-IOT-CNSLT, AS-CIE-SME"></textarea> -->
-            <textarea rows="1" cols="50" [(ngModel)]="inputParamsData.fromPid" formControlName="fromPid"></textarea>
+            <textarea rows="1" cols="50"  formControlName="fromPid"></textarea>
           </div>
         </div>
 
@@ -599,7 +599,7 @@
           <div class="col-md-1" style="margin-right: -3.9%"></div>
           <div class="col-md-4" class="label">
             <!-- <input type="text" placeholder="CON-SNT-1"> -->
-            <input type="text" formControlName="toPid" [(ngModel)]="inputParamsData.toPid">
+            <input type="text" formControlName="toPid">
           </div>
         </div>
 
@@ -611,7 +611,7 @@
           <div class="col-md-1" style="margin-right: -10%"></div>
           <div class="col-md-4" class="label">
             <!-- <textarea rows="1" cols="50" placeholder="105840335, 106027813, 105981923, 106128316, 106351102"></textarea> -->
-            <textarea rows="1" cols="50" formControlName="soNum" [(ngModel)]="inputParamsData.soNum"></textarea>
+            <textarea rows="1" cols="50" formControlName="soNum" ></textarea>
           </div>
         </div>
 
@@ -621,7 +621,7 @@
           <div class="col-md-1" class="label">Theatre</div>
           <div class="col-md-1" style="margin-right: -3.9%"></div>
           <div class="col-md-4" class="label">
-            <input type="text" formControlName="territoryType" [(ngModel)]="inputParamsData.territoryType" disabled>
+            <input type="text" formControlName="territoryType"  disabled>
           </div>
         </div>
 
@@ -630,7 +630,7 @@
           <div class="col-md-1" class="label">Trans Group Code</div>
           <div class="col-md-1" style="margin-right: -8.8%"></div>
           <div class="col-md-4" class="label">
-            <input type="text" formControlName="transGroupCode" [(ngModel)]="inputParamsData.transGroupCode" disabled>
+            <input type="text" formControlName="transGroupCode"  disabled>
           </div>
         </div>
         <br>

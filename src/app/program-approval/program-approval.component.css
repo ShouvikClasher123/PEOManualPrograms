@@ -1,8 +1,6 @@
 #colorize{
     font-size: 14px; 
-    padding: 4px;
-    padding-right:10%;
     text-align: center; 
-    background: #03A9F4; 
-    color:white;
+    /* background: #03A9F4;  */
+    /* color:white; */
 }

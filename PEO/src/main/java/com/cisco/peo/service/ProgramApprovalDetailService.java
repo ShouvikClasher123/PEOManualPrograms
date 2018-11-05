@@ -54,7 +54,7 @@ public class ProgramApprovalDetailService {
 		
 	}
 	
-	 public void editApprovalDetail(String programNames, String flag) {
+	 public void editApprovalDetail(String programNames, String approverComment, String flag) {
 		 
 		 List<String> programName = new ArrayList<String>();
 		 
@@ -65,7 +65,7 @@ public class ProgramApprovalDetailService {
 			}
 			
 		 
-		  programApprovalDetailRepository.editApprovalDetail(programName, flag);
+		  programApprovalDetailRepository.editApprovalDetail(programName, approverComment, flag);
 		 
 	}
 
